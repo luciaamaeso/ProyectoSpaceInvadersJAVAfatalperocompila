@@ -1,0 +1,67 @@
+package pantallas;
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
+public class PantallaSTART extends JFrame {
+
+    private JButton START;
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            PantallaSTART frame = new PantallaSTART();
+            frame.setVisible(true);
+        });
+    }
+
+    public PantallaSTART() {
+        // Icono (opcional)
+        setIconImage(Toolkit.getDefaultToolkit().getImage(
+            "C:\\Users\\lucia\\Desktop\\PROYECTOIS\\SpaceInvaders\\src\\Designer (2).png"));
+
+        setTitle("Space Invaders - Portada");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(960, 600);
+        setLocationRelativeTo(null);
+
+        // 1) Panel de fondo que escala y centra la imagen
+        BackgroundPanel background = new BackgroundPanel("C:\\Users\\lucia\\Desktop\\PROYECTOIS\\SpaceInvaders\\src\\Designer (2).png");
+        background.setLayout(new BorderLayout()); // importante para añadir hijos
+        setContentPane(background);
+
+        // 2) “Safe area” inferior: altura fija para no pisar la nave/arte
+        // Ajusta SAFE_HEIGHT hasta que encaje perfecto con tu portada (p.ej. 110–160)
+        final int SAFE_HEIGHT = 140;
+
+        JPanel bottomSafeArea = new JPanel(new GridBagLayout()) {
+            @Override public Dimension getPreferredSize() {
+                Dimension d = super.getPreferredSize();
+                return new Dimension(d.width, SAFE_HEIGHT);
+            }
+        };
+        bottomSafeArea.setOpaque(false);
+        bottomSafeArea.setBorder(new EmptyBorder(8, 16, 24, 16));
+
+        // 3) Botón START centrado dentro del safe area
+        START = new JButton("START");
+        START.setFont(START.getFont().deriveFont(Font.BOLD, 24f));
+        START.setFocusPainted(false);
+        START.setBackground(new Color(20, 20, 20, 180)); // semitransparente
+        START.setForeground(new Color(0, 255, 255));
+        START.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(0, 255, 255), 2, true),
+            BorderFactory.createEmptyBorder(10, 32, 10, 32)
+        ));
+
+        bottomSafeArea.add(START, new GridBagConstraints());
+        background.add(bottomSafeArea, BorderLayout.SOUTH);
+
+        // 4) Acción del botón
+        START.addActionListener(e -> {
+            System.out.println("¡Start pulsado!");
+            // TODO: cambiar de pantalla / iniciar juego
+        });
+    }
+}
+}

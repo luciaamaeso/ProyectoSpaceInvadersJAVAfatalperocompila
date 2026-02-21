@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\lucia\Desktop\PROYECTOIS\.metadata\.plugins\org.eclipse.jdt.core
+2443472326.index
+1260308334.index

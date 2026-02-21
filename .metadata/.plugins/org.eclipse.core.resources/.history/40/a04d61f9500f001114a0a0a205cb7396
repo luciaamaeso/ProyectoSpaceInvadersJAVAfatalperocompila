@@ -1,0 +1,89 @@
+package pantallas;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class pantallaJuego extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+
+    private int anchopix = 100;   
+    private int altopix  = 60;    
+    private int tamanopix = 8;    
+
+    private JPanel panelContenido;
+    private JPanel panelMatriz;
+
+    private final JLabel[][] matrizCeldas = new JLabel[60][100];
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                pantallaJuego ventana = new pantallaJuego();
+                ventana.setVisible(true);
+            }
+        });
+    }
+
+    public pantallaJuego() {
+        setTitle("Space Invaders - Matriz 100x60");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        panelContenido = new JPanel(new BorderLayout());
+        panelContenido.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(panelContenido);
+
+        panelContenido.add(crearPanelMatriz(), BorderLayout.CENTER);
+
+        pack();                 
+        setLocationRelativeTo(null);
+    }
+
+   
+    private JPanel crearPanelMatriz() {
+        if (panelMatriz == null) {
+            panelMatriz = new JPanel(new GridLayout(altopix, anchopix, 0, 0));
+
+            for (int fila = 0; fila < altopix; fila++) {
+                for (int col = 0; col < anchopix; col++) {
+                    JLabel celda = new JLabel();
+                    celda.setOpaque(true);
+                    celda.setBackground(Color.BLACK);
+                    celda.setPreferredSize(new Dimension(tamanopix, tamanopix));
+
+                    matrizCeldas[fila][col] = celda;
+                    panelMatriz.add(celda);
+                }
+            }
+
+            panelMatriz.setPreferredSize(
+                new Dimension(anchopix * tamanopix, altopix * tamanopix)
+            );
+        }
+        return panelMatriz;
+    }
+
+
+    //Colorea un píxel en la matriz 
+    public void colorearPixel(int x, int y, Color color) {
+        if (x >= 0 && x < anchopix && y >= 0 && y < altopix) {
+            matrizCeldas[y][x].setBackground(color);
+        }
+    }
+
+    //Obtiene un píxel 
+    public JLabel obtenerPixel(int x, int y) {
+        if (x >= 0 && x < anchopix && y >= 0 && y < altopix) {
+            return matrizCeldas[y][x];
+        }
+        return null;
+    }
+}

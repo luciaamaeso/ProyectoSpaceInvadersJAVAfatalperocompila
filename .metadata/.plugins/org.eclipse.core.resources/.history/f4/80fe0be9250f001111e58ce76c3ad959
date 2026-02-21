@@ -1,0 +1,44 @@
+package pantallas;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class pantallaSTART extends JFrame {
+
+    public pantallaSTART() {
+
+        setTitle("Pantalla Start");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(960, 600);
+        setLocationRelativeTo(null);
+
+        // ----- 1) Cargar imagen ORIGINAL -----
+        ImageIcon original = new ImageIcon("assets/portada.png");
+
+        // ----- 2) Escalar imagen al tamaño del JFrame -----
+        Image scaled = original.getImage().getScaledInstance(960, 600, Image.SCALE_SMOOTH);
+        ImageIcon fondoEscalado = new ImageIcon(scaled);
+
+        // ----- 3) Fondo como JLabel -----
+        JLabel background = new JLabel(new ImageIcon("C:\\Users\\lucia\\Desktop\\PROYECTOIS\\SpaceInvaders\\src\\Designer (2).png"));
+        background.setLayout(new BorderLayout());
+        setContentPane(background);
+
+        // ----- 4) Panel inferior transparente -----
+        JPanel abajo = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        abajo.setOpaque(false);
+
+        JButton btnStart = new JButton("START");
+        abajo.add(btnStart);
+
+        background.add(abajo, BorderLayout.SOUTH);
+
+        btnStart.addActionListener(e -> {
+            System.out.println("Start pulsado");
+        });
+    }
+
+    public static void main(String[] args) {
+        new pantallaSTART().setVisible(true);
+    }
+}

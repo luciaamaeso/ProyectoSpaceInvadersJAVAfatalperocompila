@@ -1,0 +1,59 @@
+package pantallas;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.UIManager;
+import java.awt.Color;
+import java.awt.CardLayout;
+import java.awt.BorderLayout;
+
+public class pantallaStart extends JFrame {
+
+	private JPanel contentPane;
+	private JLabel lblNewLabel;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					pantallaStart frame = new pantallaStart();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public pantallaStart() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 884, 574);
+		contentPane = new JPanel();
+		contentPane.setBorder(null);
+
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.add(getLblNewLabel(), BorderLayout.CENTER);
+	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("New label");
+		}
+		return lblNewLabel;
+	}
+}

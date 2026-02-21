@@ -1,0 +1,45 @@
+package pantallas;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.*;
+
+public class pantallaSTART extends JFrame {
+
+    public pantallaSTART() {
+
+        setTitle("Pantalla Start");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(960, 600);
+        setLocationRelativeTo(null);
+
+        // Fondo como JLabel
+        ImageIcon fondo = new ImageIcon("C:\\Users\\lucia\\Desktop\\PROYECTOIS\\SpaceInvaders\\src\\Designer (2).png");
+        JLabel background = new JLabel(new ImageIcon("C:\\Users\\lucia\\Desktop\\PROYECTOIS\\SpaceInvaders\\src\\Designer (2).png"));
+
+        // Necesario para poder colocar cosas encima
+        background.setLayout(new BorderLayout());
+
+        // Botón START abajo
+        JButton btnStart = new JButton("START");
+
+        JPanel abajo = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        abajo.setOpaque(false); // Transparente para ver el fondo
+        abajo.add(btnStart);
+
+        // Añadir el panel inferior sobre el fondo
+        background.add(abajo, BorderLayout.SOUTH);
+
+        // Poner el fondo como contentPane
+        setContentPane(background);
+
+        // Acción del botón
+        btnStart.addActionListener(e -> {
+            System.out.println("¡Empieza el juego!");
+        });
+    }
+
+    public static void main(String[] args) {
+        new pantallaSTART().setVisible(true);
+    }
+}

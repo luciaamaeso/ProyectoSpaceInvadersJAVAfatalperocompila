@@ -1,0 +1,37 @@
+package pantallas;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class pantallaSTART extends JFrame {
+
+    public pantallaSTART() {
+
+        setTitle("Pantalla Start");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(1452, 1063);
+        setLocationRelativeTo(null);
+
+        // 1) Imagen original
+        ImageIcon original = new ImageIcon("assets/fondo.png");
+
+        // 2) Escalamos la imagen al tamaño del JFrame
+        Image imgEscalada = original.getImage().getScaledInstance(
+                960, // ancho que quieres
+                600, // alto que quieres
+                Image.SCALE_SMOOTH
+        );
+
+        // 3) Imagen escalada dentro del icono
+        ImageIcon fondoEscalado = new ImageIcon(imgEscalada);
+
+        // 4) JLabel como fondo
+        JLabel background = new JLabel(new ImageIcon("C:\\Users\\lucia\\Desktop\\PROYECTOIS\\SpaceInvaders\\src\\Designer (2).png"));
+        background.setLayout(new BorderLayout());
+        setContentPane(background);
+    }
+
+    public static void main(String[] args) {
+        new pantallaSTART().setVisible(true);
+    }
+}
