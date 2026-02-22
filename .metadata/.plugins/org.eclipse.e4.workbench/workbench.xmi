@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_usKpYQ8XEfGKjuf42QvUJw" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_usKpYg8XEfGKjuf42QvUJw" bindingContexts="_usKpaw8XEfGKjuf42QvUJw">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;pantallaJuego.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/pantallaJuego.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/pantallaJuego.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;pantallaStart.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/pantallaStart.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/pantallaStart.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;trgtsg.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/trgtsg.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/trgtsg.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;nave.png&quot; tooltip=&quot;SpaceInvaders/resources/nave.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/resources/nave.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;SPACEINVADERSFONDO.png&quot; tooltip=&quot;SpaceInvaders/resources/SPACEINVADERSFONDO.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/resources/SPACEINVADERSFONDO.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;pantallastart.png&quot; tooltip=&quot;SpaceInvaders/resources/pantallastart.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/resources/pantallastart.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;ship_full_canvas.png&quot; tooltip=&quot;SpaceInvaders/imagenesjuego/ship_full_canvas.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/imagenesjuego/ship_full_canvas.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;pantallastart.png&quot; tooltip=&quot;SpaceInvaders/imagenesjuego/pantallastart.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/imagenesjuego/pantallastart.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;nave.png&quot; tooltip=&quot;SpaceInvaders/src/imagenesjuego/nave.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/imagenesjuego/nave.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;ship_full_canvas.png&quot; tooltip=&quot;SpaceInvaders/src/imagenesjuego/ship_full_canvas.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/imagenesjuego/ship_full_canvas.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;pantallaSTART.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/pantallaSTART.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/pantallaSTART.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;PantallaSTART.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/PantallaSTART.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/PantallaSTART.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;Designer (2).png&quot; tooltip=&quot;SpaceInvaders/src/Designer (2).png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/Designer (2).png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;PantallaSTART.java&quot; tooltip=&quot;SpaceInvaders/src/PantallaSTART.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/PantallaSTART.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;StartScreenSpaceship.java&quot; tooltip=&quot;SpaceInvaders/src/screens/StartScreenSpaceship.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/screens/StartScreenSpaceship.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;GameScreen.java&quot; tooltip=&quot;SpaceInvaders/src/screens/GameScreen.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/screens/GameScreen.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;GameScreen.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/GameScreen.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/GameScreen.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;pantallaJuego.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/pantallaJuego.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/pantallaJuego.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;pantallaStart.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/pantallaStart.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/pantallaStart.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;trgtsg.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/trgtsg.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/trgtsg.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;nave.png&quot; tooltip=&quot;SpaceInvaders/resources/nave.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/resources/nave.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;SPACEINVADERSFONDO.png&quot; tooltip=&quot;SpaceInvaders/resources/SPACEINVADERSFONDO.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/resources/SPACEINVADERSFONDO.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;pantallastart.png&quot; tooltip=&quot;SpaceInvaders/resources/pantallastart.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/resources/pantallastart.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;ship_full_canvas.png&quot; tooltip=&quot;SpaceInvaders/imagenesjuego/ship_full_canvas.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/imagenesjuego/ship_full_canvas.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;pantallastart.png&quot; tooltip=&quot;SpaceInvaders/imagenesjuego/pantallastart.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/imagenesjuego/pantallastart.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;nave.png&quot; tooltip=&quot;SpaceInvaders/src/imagenesjuego/nave.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/imagenesjuego/nave.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;ship_full_canvas.png&quot; tooltip=&quot;SpaceInvaders/src/imagenesjuego/ship_full_canvas.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/imagenesjuego/ship_full_canvas.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;pantallaSTART.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/pantallaSTART.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/pantallaSTART.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;PantallaSTART.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/PantallaSTART.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/pantallas/PantallaSTART.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.browser.editor&quot; name=&quot;Designer (2).png&quot; tooltip=&quot;SpaceInvaders/src/Designer (2).png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/Designer (2).png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;PantallaSTART.java&quot; tooltip=&quot;SpaceInvaders/src/PantallaSTART.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/SpaceInvaders/src/PantallaSTART.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_usKpYg8XEfGKjuf42QvUJw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_u1MCgw8XEfGKjuf42QvUJw" label="%trimmedwindow.label.eclipseSDK" x="633" y="0" width="654" height="1087">
     <persistedState key="coolBarVisible" value="true"/>
@@ -99,8 +99,8 @@
                 </children>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_u9N9KQ8XEfGKjuf42QvUJw" containerData="8865" selectedElement="_u9N9Kg8XEfGKjuf42QvUJw">
-              <children xsi:type="basic:PartSashContainer" xmi:id="_u9N9Kg8XEfGKjuf42QvUJw" containerData="7500" selectedElement="_u9N9Kw8XEfGKjuf42QvUJw" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_u9N9KQ8XEfGKjuf42QvUJw" containerData="8865" selectedElement="_u9N9MQ8XEfGKjuf42QvUJw">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_u9N9Kg8XEfGKjuf42QvUJw" containerData="6918" selectedElement="_u9N9Kw8XEfGKjuf42QvUJw" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_u9N9Kw8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_u9AhwA8XEfGKjuf42QvUJw"/>
                 <children xsi:type="basic:PartStack" xmi:id="_u9N9LA8XEfGKjuf42QvUJw" elementId="right" toBeRendered="false" containerData="2500">
                   <tags>org.eclipse.e4.secondaryNavigationStack</tags>
@@ -122,9 +122,11 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_u9N9MQ8XEfGKjuf42QvUJw" elementId="bottom" containerData="2500" selectedElement="_u9N9Ng8XEfGKjuf42QvUJw">
+              <children xsi:type="basic:PartStack" xmi:id="_u9N9MQ8XEfGKjuf42QvUJw" elementId="bottom" containerData="3082" selectedElement="_lagGwQ-FEfG-U5vHbI2pMA">
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
                 <tags>WindowBuilder</tags>
+                <tags>Git</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_u9N9Mg8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.views.ProblemView" ref="_u9GoYg8XEfGKjuf42QvUJw" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
@@ -160,6 +162,10 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_t7qcsQ8bEfGWQby9zIMJBw" elementId="org.eclipse.wb.core.PaletteView" ref="_t7qcsA8bEfGWQby9zIMJBw" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:WindowBuilder</tags>
+                </children>
+                <children xsi:type="advanced:Placeholder" xmi:id="_lagGwQ-FEfG-U5vHbI2pMA" elementId="org.eclipse.egit.ui.StagingView" ref="_lagGwA-FEfG-U5vHbI2pMA" closeable="true">
+                  <tags>View</tags>
+                  <tags>categoryTag:Git</tags>
                 </children>
               </children>
             </children>
@@ -206,24 +212,20 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_u9AhwA8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.editorss" selectedElement="_u9BI0A8XEfGKjuf42QvUJw">
-      <children xsi:type="basic:PartStack" xmi:id="_u9BI0A8XEfGKjuf42QvUJw" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_MHIrEA9DEfGa_uxb3ZBr6Q">
+      <children xsi:type="basic:PartStack" xmi:id="_u9BI0A8XEfGKjuf42QvUJw" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_gNrckA-FEfG-U5vHbI2pMA">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
-        <tags>noFocus</tags>
-        <children xsi:type="basic:Part" xmi:id="_MHIrEA9DEfGa_uxb3ZBr6Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="pantallaStart.java" iconURI="platform:/plugin/org.eclipse.wb.core.ui/icons/gui_editor.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;pantallaStart.java&quot; partName=&quot;pantallaStart.java&quot; title=&quot;pantallaStart.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/pantallaStart.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SpaceInvaders/src/pantallas/pantallaStart.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2793&quot; selectionTopPixel=&quot;750&quot;/>&#xD;&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_cgsNcA-FEfG-U5vHbI2pMA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="GameScreen.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;GameScreen.java&quot; partName=&quot;GameScreen.java&quot; title=&quot;GameScreen.java&quot; tooltip=&quot;SpaceInvaders/src/screens/GameScreen.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SpaceInvaders/src/screens/GameScreen.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
-          <tags>org.eclipse.wb.core.guiEditor</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
+          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
         </children>
-        <children xsi:type="basic:Part" xmi:id="_5fzNcA9LEfGe86uc_rdm9Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="pantallaJuego.java" iconURI="platform:/plugin/org.eclipse.wb.core.ui/icons/gui_editor.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;pantallaJuego.java&quot; partName=&quot;pantallaJuego.java&quot; title=&quot;pantallaJuego.java&quot; tooltip=&quot;SpaceInvaders/src/pantallas/pantallaJuego.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SpaceInvaders/src/pantallas/pantallaJuego.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2762&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_gNrckA-FEfG-U5vHbI2pMA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="StartScreenSpaceship.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;StartScreenSpaceship.java&quot; partName=&quot;StartScreenSpaceship.java&quot; title=&quot;StartScreenSpaceship.java&quot; tooltip=&quot;SpaceInvaders/src/screens/StartScreenSpaceship.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SpaceInvaders/src/screens/StartScreenSpaceship.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;510&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
-          <tags>org.eclipse.wb.core.guiEditor</tags>
+          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
         </children>
       </children>
     </sharedElements>
@@ -303,7 +305,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_RcoEsQ8lEfGWQby9zIMJBw" elementId="org.eclipse.ui.console.ConsoleView"/>
+      <toolbar xmi:id="_RcoEsQ8lEfGWQby9zIMJBw" elementId="org.eclipse.ui.console.ConsoleView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_u9HPcw8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.views.BookmarkView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Bookmarks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/bkmrk_nav.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.BookmarksView"/>
@@ -377,6 +379,20 @@
       </menus>
       <toolbar xmi:id="_t7xxcQ8bEfGWQby9zIMJBw" elementId="org.eclipse.wb.core.PaletteView" visible="false"/>
     </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_lagGwA-FEfG-U5vHbI2pMA" elementId="org.eclipse.egit.ui.StagingView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Git Staging" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/staging.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
+      <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.staging.StagingView"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
+      <tags>View</tags>
+      <tags>categoryTag:Git</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
+      <menus xmi:id="_lars8A-FEfG-U5vHbI2pMA" elementId="org.eclipse.egit.ui.StagingView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_lars8Q-FEfG-U5vHbI2pMA" elementId="org.eclipse.egit.ui.StagingView"/>
+    </sharedElements>
     <trimBars xmi:id="_usKpYw8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.main.toolbar" contributorURI="platform:/plugin/org.eclipse.platform">
       <children xsi:type="menu:ToolBar" xmi:id="_u2LhAA8XEfGKjuf42QvUJw" elementId="group.file" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -384,7 +400,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_u2MIEA8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Tm3ZwA9IEfGe86uc_rdm9Q" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_usjrhA8XEfGKjuf42QvUJw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_XblU0A-FEfG-U5vHbI2pMA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_usjrhA8XEfGKjuf42QvUJw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_u2MIEQ8XEfGKjuf42QvUJw" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -396,6 +412,9 @@
       <children xsi:type="menu:ToolBar" xmi:id="_u2MIFA8XEfGKjuf42QvUJw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
         <children xsi:type="menu:ToolBarSeparator" xmi:id="_u2MIFQ8XEfGKjuf42QvUJw" elementId="additions" toBeRendered="false"/>
+      </children>
+      <children xsi:type="menu:ToolBar" xmi:id="_chiiAA-FEfG-U5vHbI2pMA" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
+        <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_u-K_YA8XEfGKjuf42QvUJw" elementId="org.eclipse.debug.ui.launchActionSet">
         <tags>Draggable</tags>
@@ -412,7 +431,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_u2MIGA8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Tm5O8A9IEfGe86uc_rdm9Q" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_usjrAQ8XEfGKjuf42QvUJw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_XbnKCA-FEfG-U5vHbI2pMA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_usjrAQ8XEfGKjuf42QvUJw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_u2MIGQ8XEfGKjuf42QvUJw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -2351,7 +2370,7 @@
   <addons xmi:id="_usKpdw8XEfGKjuf42QvUJw" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_usKpeA8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_usR-IA8XEfGKjuf42QvUJw" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_TYV1kQ9IEfGe86uc_rdm9Q" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_usgAkA8XEfGKjuf42QvUJw" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
   <categories xmi:id="_usgAkQ8XEfGKjuf42QvUJw" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
