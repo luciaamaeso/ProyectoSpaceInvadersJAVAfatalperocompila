@@ -2,38 +2,50 @@ package sprint1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Observable;
 
-public class SpaceCraft {
+public abstract class SpaceCraft extends Observable {
 	// Atributos
 	
-	private ArrayList<Square> space;
-	private Shot[] bullets;
+	protected ArrayList<Square> space;
+	protected String color;
+	// private Shot[] bullets;  esto lo he hecho pensando en el futuro
 
 	
 	// Constructora
 	
-	public SpaceCraft() {
-	
+	protected SpaceCraft(ArrayList<Square> squares, String color) {
+		this.space = squares;
+		this.color = color;
+		this.addObserver(null);  // Aquí hay que comprobar el nombre
 	}
 	
 	// ha sido golpeada?
 	
-	public boolean checkIfHitted(Shot bullet) {
+	public void checkIfHitted(Shot bullet) {
+		
 		Iterator<Square> squares = this.space.iterator();
 		while(squares.hasNext()) {
 			Square act = squares.next();
 			if(act.getX() == bullet.getPositionX() && act.getY() == bullet.getPositionY()) {  // aquí hay varios
-				return true;
+				this.setChanged();
+				this.notifyObservers(new Object[]{true});
 			} 
 		}
-		return false;
+		
+
+		
 	}
 	
 	// Moverse
 	
+	protected void move() {
+		
+	}
+	
 	// Disparar
 	
-	public void disparar() {
-		new Shot(...);
+	protected void shoot() {
+		new Shot(...);  // Aquí supongo que todo el proceso de crear un disparo, a la vez que el notificar a los observers, lo hace la constructora de shot
 	}
 }
