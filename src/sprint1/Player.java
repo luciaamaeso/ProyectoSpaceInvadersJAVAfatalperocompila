@@ -1,5 +1,19 @@
 package sprint1;
 
-public class Player {
+import java.util.ArrayList;
 
+public class Player extends SpaceCraft {
+	
+	
+	public Player(int x, int y, String color) {
+		super(x,y,color);
+	}
+	
+	protected void moveLeft() {
+		this.x = x - 1;
+	}
+	
+	protected void moveRight() {
+		this.x = x+1;
+	}
 }
