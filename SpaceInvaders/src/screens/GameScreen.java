@@ -9,11 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class GameScreen extends JFrame {
     private static final long serialVersionUID = 1L;
     
- // las columnas, las rows yel tamaño de cada pixel (cada JLabel)
+ // las columnas, las rows y el tamaï¿½o de cada pixel (cada JLabel)
     private int colspix = 100; 
     private int rowspix  = 60;  
     private int pixelsize = 8;  

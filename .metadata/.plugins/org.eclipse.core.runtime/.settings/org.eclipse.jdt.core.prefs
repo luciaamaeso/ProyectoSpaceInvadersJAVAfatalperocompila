@@ -1,5 +1,13 @@
+JRE_LIB=C\:/Program Files/Java/jdk-25.0.2/lib/jrt-fs.jar
+JRE_SRC=C\:/Program Files/Java/jdk-25.0.2/lib/src.zip
 eclipse.preferences.version=1
 org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=D\:/eclipse/
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jdk-25.0.2/lib/jrt-fs.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=C\:/Program Files/Java/jdk-25.0.2/lib/src.zip
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=D\:/eclipse/plugins/org.junit_4.13.2.v20240929-1000.jar
+org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/lucia/.m2/repository
 org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=21
 org.eclipse.jdt.core.compiler.compliance=21

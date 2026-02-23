@@ -1,0 +1,155 @@
+package screens;
+
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+// Estos son para el parpadeo, esto lo he puesto nuevo!!
+import javax.swing.Timer;
+import javax.swing.Icon;
+import java.awt.image.BufferedImage;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class StartScreen extends JFrame {
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    private JLabel lblNewLabel;
+    private JButton btnNewButton2;
+    private JButton btnNewButton3;
+
+    // Estos tambien para el parpadeo jeje
+    private Timer blinkTimer3;           
+    private Icon btn3BaseIcon;           
+    private Icon btn3BlankIcon;          
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    StartScreen frame = new StartScreen();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public StartScreen() {
+        setBackground(new Color(0, 0, 0));
+        setResizable(false);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(StartScreen.class.getResource("/img/SPACEINVADERSFONDO.png")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 700, 471);
+        contentPane = new JPanel();
+        contentPane.setBorder(null);
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        contentPane.add(getLblNewLabel());
+        contentPane.add(getbtnNewButton2());
+        contentPane.add(getbtnNewButton3());
+
+        setLocationRelativeTo(null); //este hace que la pantalla se abra en el centro
+        
+        // Esta es la accion del boton de la nave para abrir GameScreen y cerrar esta
+        getbtnNewButton2().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GameScreen game = new GameScreen(); 
+                game.setVisible(true);
+                dispose();
+            }
+        });
+
+        // Parpadeo y click del botón 3, la nave negra
+        btn3BaseIcon = getbtnNewButton3().getIcon();
+
+        btn3BlankIcon = new ImageIcon(
+            new BufferedImage(
+                ((ImageIcon) btn3BaseIcon).getIconWidth(),
+                ((ImageIcon) btn3BaseIcon).getIconHeight(),
+                BufferedImage.TYPE_INT_ARGB
+            )
+        );
+
+        final int BLINK_MS = 250; // ajustable
+        blinkTimer3 = new Timer(BLINK_MS, e -> {
+            Icon current = getbtnNewButton3().getIcon();
+            if (current == null || current == btn3BlankIcon) {
+                getbtnNewButton3().setIcon(btn3BaseIcon);
+            } else {
+                getbtnNewButton3().setIcon(btn3BlankIcon);
+            }
+        });
+
+        getbtnNewButton3().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                blinkTimer3.start();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                blinkTimer3.stop();
+                getbtnNewButton3().setIcon(btn3BaseIcon);
+            }
+        });
+
+        // Click del botón 3 = igual que el botón 2 (ir a GameScreen)
+        getbtnNewButton3().addActionListener(e -> getbtnNewButton2().doClick());
+        // ---- FIN AÑADIDO ----
+    }
+
+    // Aqui creas la label con la imagen de fondo
+    private JLabel getLblNewLabel() {
+        if (lblNewLabel == null) {
+            lblNewLabel = new JLabel("fondillo");
+            lblNewLabel.setBounds(0, 0, 694, 442);
+            lblNewLabel.setIcon(new ImageIcon(StartScreen.class.getResource("/img/pantallastart.png")));
+            lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        }
+        return lblNewLabel;
+    }
+
+    // Boton de la nave con icono, para ir a la otra pantallica
+    private JButton getbtnNewButton2() {
+        if (btnNewButton2 == null) {
+            ImageIcon icon = new ImageIcon(getClass().getResource("/img/nave.png"));
+            btnNewButton2 = new JButton(new ImageIcon(StartScreen.class.getResource("/img/nave.png")));
+            btnNewButton2.setRolloverIcon(icon);
+            btnNewButton2.setPressedIcon(icon);
+            btnNewButton2.setContentAreaFilled(false);
+            btnNewButton2.setBorderPainted(false);
+            btnNewButton2.setFocusPainted(false);
+            btnNewButton2.setOpaque(false);
+            btnNewButton2.setText(null);
+            btnNewButton2.setBounds(302, 236, 92, 85);
+        }
+        return btnNewButton2;
+    }
+    
+    private JButton getbtnNewButton3() {
+        if (btnNewButton3 == null) {
+            ImageIcon icon = new ImageIcon(getClass().getResource("/img/naveparaparpadeo.png"));
+            btnNewButton3 = new JButton(new ImageIcon(StartScreen.class.getResource("/img/naveparaparpadeo.png")));
+            btnNewButton3.setRolloverIcon(icon);
+            btnNewButton3.setPressedIcon(new ImageIcon(StartScreen.class.getResource("/img/naveparaparpadeo.png")));
+            btnNewButton3.setContentAreaFilled(false);
+            btnNewButton3.setBorderPainted(false);
+            btnNewButton3.setFocusPainted(false);
+            btnNewButton3.setOpaque(false);
+            btnNewButton3.setText(null);
+            btnNewButton3.setBounds(302, 236, 92, 85);
+        }
+        return btnNewButton3;
+    }
+}

@@ -1,4 +1,4 @@
-package sprint1;
+package model;
 
 public class Board {
 	private static Board myBoard;

@@ -1,6 +1,5 @@
-package sprint1;
+package model;
 
-import java.util.ArrayList;
 
 public class Player extends SpaceCraft {
 	

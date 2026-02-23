@@ -1,4 +1,4 @@
-package sprint1;
+package model;
 
 
 public class Alien extends SpaceCraft{

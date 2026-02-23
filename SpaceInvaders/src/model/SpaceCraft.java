@@ -1,7 +1,5 @@
-package sprint1;
+package model;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Observable;
 
 public abstract class SpaceCraft extends Observable {
@@ -34,7 +32,5 @@ public abstract class SpaceCraft extends Observable {
 	
 	// Disparar
 	
-	protected void shoot() {
-		new Shot(...);  // Aquí supongo que todo el proceso de crear un disparo, a la vez que el notificar a los observers, lo hace la constructora de shot
-	}
+	
 }

@@ -34,4 +34,17 @@
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="true"/>
+		<list key="replacehistory">
+			<item value="btnNewButton3"/>
+			<item value="btnNewButton2"/>
+			<item value="StartScreen"/>
+		</list>
+		<list key="findhistory">
+			<item value="btnNewButton2"/>
+			<item value="btnNewButton"/>
+			<item value="StartScreenSpaceship"/>
+		</list>
+	</section>
 </section>
