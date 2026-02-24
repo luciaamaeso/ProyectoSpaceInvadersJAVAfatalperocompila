@@ -1,3 +1,5 @@
-2026/02/23-21:33:57.508 1e38 Reusing MANIFEST D:\PROYECTOIS\ProyectoSpaceInvadersJAVAfatalperocompila\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
-2026/02/23-21:33:57.512 1e38 Recovering log #3
-2026/02/23-21:33:57.513 1e38 Reusing old log D:\PROYECTOIS\ProyectoSpaceInvadersJAVAfatalperocompila\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/000003.log 
+2026/02/24-18:36:05.438 17c Log #3: 6 ops saved to Table #4 OK
+2026/02/24-18:36:05.442 17c Archiving C:\Users\1231208\Desktop\ACCESOPROYECTO\ProyectoSpaceInvadersJAVAfatalperocompila\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/000003.log: OK
+2026/02/24-18:36:05.442 17c Table #4: 6 entries OK
+2026/02/24-18:36:05.447 17c Archiving C:\Users\1231208\Desktop\ACCESOPROYECTO\ProyectoSpaceInvadersJAVAfatalperocompila\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001: OK
+2026/02/24-18:36:05.459 17c **** Repaired leveldb C:\Users\1231208\Desktop\ACCESOPROYECTO\ProyectoSpaceInvadersJAVAfatalperocompila\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database; recovered 1 files; 244 bytes. Some data may have been lost. ****
