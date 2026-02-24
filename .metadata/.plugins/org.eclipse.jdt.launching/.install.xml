@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
+    <entry loc="D:\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.10.v20260205-0638\jre" stamp="1771871645410"/>
+    <entry loc="C:\eclipse-java-2021-03-R - OK\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955" stamp="1644607823462"/>
+    <entry loc="D:\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.10.v20260205-0638" stamp="1771871645411"/>
+    <entry loc="D:\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.9.v20251105-0741\jre" stamp="1771862215543"/>
+    <entry loc="C:\Program Files (x86)\Java\jre1.8.0_211" stamp="1662043945356"/>
     <entry loc="C:\Program Files (x86)\Java\jre1.8.0_261" stamp="1662635120379"/>
     <entry loc="C:\Program Files\Java\jdk-17.0.1" stamp="1662718759723"/>
     <entry loc="C:\eclipse-java-2021-03-R - OK\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre" stamp="1644607833385"/>
     <entry loc="C:\ECLIPSE_JAVA\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.7.v20250502-0916\jre" stamp="1750243745542"/>
-    <entry loc="C:\eclipse-java-2021-03-R - OK\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955" stamp="1644607823462"/>
     <entry loc="C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot" stamp="1771865930206"/>
     <entry loc="D:\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.9.v20251105-0741" stamp="1771862205286"/>
     <entry loc="C:\Program Files\Java\jdk-25.0.2" stamp="1771866946219"/>
     <entry loc="C:\ECLIPSE_JAVA\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.7.v20250502-0916" stamp="1750243745542"/>
-    <entry loc="D:\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.9.v20251105-0741\jre" stamp="1771862215543"/>
-    <entry loc="C:\Program Files (x86)\Java\jre1.8.0_211" stamp="1662043945356"/>
 </dirs>

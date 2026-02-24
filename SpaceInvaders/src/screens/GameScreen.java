@@ -19,11 +19,10 @@ import model.Board;
 public class GameScreen extends JFrame implements Observer {
     private static final long serialVersionUID = 1L;
     
- // las columnas, las rows y el tama�o de cada pixel (cada JLabel)
+ // las columnas, las rows y el tamanio de cada pixel (cada JLabel)
     private int colspix = 100; 
     private int rowspix  = 60;  
     private int pixelsize = 8;  
-
     private JPanel contentPane;
     private JPanel matrixPanel;
     private JLabel[][] pixelMatrix;
@@ -43,13 +42,10 @@ public class GameScreen extends JFrame implements Observer {
     public GameScreen() {
         setTitle("SpaceInvaders de los JaVaMalPeroCompila!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         contentPane = new JPanel(new BorderLayout());
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-
         contentPane.add(createMatrixPanel(), BorderLayout.CENTER);
-
         pack();  
         setResizable(false);
         setLocationRelativeTo(null);
@@ -60,7 +56,6 @@ public class GameScreen extends JFrame implements Observer {
     // Aqui se ccrea la matriz de JLabels
     private JPanel createMatrixPanel() {
         if (matrixPanel == null) {
-
             matrixPanel = new JPanel(new GridLayout(rowspix, colspix, 0, 0));
             pixelMatrix = new JLabel[rowspix][colspix];
             
@@ -74,30 +69,33 @@ public class GameScreen extends JFrame implements Observer {
                     matrixPanel.add(pixel);
                 }
             }
-
             matrixPanel.setPreferredSize(new Dimension(colspix * pixelsize, rowspix * pixelsize));
         }
         return matrixPanel;
     }
+    
+    @Override 
+    public void update(Observable o, Object arg) {
+    	//Aqui faltan cosas
+    	//TODO
+    	if (o == Board.getMyBoard() && arg instanceof Object[]) {
+    		Object[] arr = (Object[]) arg;
+    		if (arr.length > 0 && Boolean.TRUE.equals(arr[0])) {
+            mirrorFromBoard(); // Aqui te lleva al metodo que va a hacer espejo para "pintar" la matriz con lo observado.
+    		}
+    	}
+    }
 
-    // Colorea un pixel en la matriz
+    //Aqui RECORREMOS Board, para pintar las naves enemigos etcetc
+    private void mirrorFromBoard() {
+    	//TODO
+    //he pensado utilizar un colorOnePixel para ir iluminando cada pixel segun lo que se encuentre en casilla, estan abajo.(?????)
+    }
+    
+  //Colorea un pixel en la matriz.
     public void colorOnePixel(int x, int y, Color color) {
         if (x >= 0 && x < colspix && y >= 0 && y < rowspix) {
             pixelMatrix[y][x].setBackground(color);
         }
     }
-
-    // Obtiene un pixel (JLabel) en (x, y)
-    public JLabel getPixel(int x, int y) {
-        if (x >= 0 && x < colspix && y >= 0 && y < rowspix) {
-            return pixelMatrix[y][x];
-        }
-        return null;
-    }
-
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
-	}
 }

@@ -30,7 +30,7 @@ public class Board extends Observable {
 		
 		
 		setChanged();
-		this.notifyObservers(new Object[] {true});
+		this.notifyObservers(new Object[] {Boolean.TRUE}); //Se setea el cambio y seguidamente se notifica a los observers que el board esta listo para updatearse
 	
 	}
 	

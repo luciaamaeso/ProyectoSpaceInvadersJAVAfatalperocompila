@@ -19,128 +19,130 @@ import model.Board;
 
 public class StartScreen extends JFrame implements Observer {
     private static final long serialVersionUID = 1L;
-
     private JPanel contentPane;
-    private JLabel lblNewLabel;
-    private JButton btnNewButton2; // Botón nave (normal)
-    private JButton btnNewButton3; // Botón nave (parpadeillo)
-    private Controller controller;
+    private JLabel wallpaperStartScreen;  //Fondo
+    private JButton startButton;  //Boton de la nave normal
+    private JButton startButtonCheck;  //Boton de la nave para la confirmacion del click
+    private StartController controller;  //Controlador
+    private final Board model = Board.getMyBoard();
     
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                StartScreen frame = new StartScreen();
-                frame.setVisible(true);
+                StartScreen window = new StartScreen();
+                window.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
     }
-
+    
     public StartScreen() {
         setBackground(new Color(0, 0, 0));
         setResizable(false);
         setIconImage(Toolkit.getDefaultToolkit().getImage(StartScreen.class.getResource("/img/spaceinvaderslogo.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 700, 471);
-
-        contentPane = new JPanel();
-        contentPane.setBorder(null);
-        contentPane.setLayout(null);
+        contentPane = new JPanel(null);
         setContentPane(contentPane);
+        contentPane.add(getWallpaperStartScreen());
+        contentPane.add(getStartButton());
+        contentPane.add(getStartButtonCheck());
+        setLocationRelativeTo(null);
 
-  // Fondo, botón normal y botón negro superpuesto
-        contentPane.add(getLblNewLabel());
-        contentPane.add(getbtnNewButton2());
-        contentPane.add(getbtnNewButton3());
-
-  // Asegurar que el negro quede POR ENCIMA del normal y del fondo
-        contentPane.setComponentZOrder(getbtnNewButton3(), 0);
-        contentPane.setComponentZOrder(getbtnNewButton2(), 1);
-        contentPane.setComponentZOrder(getLblNewLabel(), 2);
-
-  // Por defecto, el negro está oculto
-        getbtnNewButton3().setVisible(false);
-        getbtnNewButton2().addActionListener(e -> {      	
-  // Aqui se muestra la nave negra superpuesta
-            btnNewButton3.setVisible(true);
-  // Lo pintamos(mostramos) para que se vea el flash 
-            btnNewButton3.paintImmediately(0, 0, btnNewButton3.getWidth(), btnNewButton3.getHeight());
-  // Ocultamos el negro y abrimos la GameScreen
-            btnNewButton3.setVisible(false);
-            
-            dispose();
-        });
-        setLocationRelativeTo(null); // Centrar la ventana
+        //Esto es para el orden de visualizacion, para que al visualizarse el boton de la nave de confirmacion, 
+        //se vea por encima del fondo y del boton de la nave normal.
+        contentPane.setComponentZOrder(getStartButtonCheck(), 0);
+        contentPane.setComponentZOrder(getStartButton(), 1);
+        contentPane.setComponentZOrder(getWallpaperStartScreen(), 2);
+        startButtonCheck.setVisible(false);
         
-        
-        
-        
-        
-        Board.getMyBoard().addObserver(this);
+        //Aniadimos el observer al board.
+        model.addObserver(this); 
     }
 
-    // Label del fondo
-    private JLabel getLblNewLabel() {
-        if (lblNewLabel == null) {
-            lblNewLabel = new JLabel("fondillo");
-            lblNewLabel.setBounds(0, 0, 694, 442);
-            lblNewLabel.setIcon(new ImageIcon(StartScreen.class.getResource("/img/pantallastart.png")));
-            lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+    private JLabel getWallpaperStartScreen() {
+        if (wallpaperStartScreen == null) {
+            wallpaperStartScreen = new JLabel("fondillo");
+            wallpaperStartScreen.setBounds(0, 0, 694, 442);
+            wallpaperStartScreen.setIcon(new ImageIcon(StartScreen.class.getResource("/img/pantallastart.png")));
+            wallpaperStartScreen.setHorizontalAlignment(SwingConstants.CENTER);
         }
-        return lblNewLabel;
+        return wallpaperStartScreen;
     }
 
-    // Botón de la nave que pasa a GameScreen
-    private JButton getbtnNewButton2() {
-        if (btnNewButton2 == null) {
+    private JButton getStartButton() {
+        if (startButton == null) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/img/nave.png"));
-            btnNewButton2 = new JButton(icon);
-            btnNewButton2.setBounds(288, 236, 106, 85);
-            btnNewButton2.setRolloverIcon(icon);
-            btnNewButton2.setPressedIcon(icon);
-            btnNewButton2.setContentAreaFilled(false);
-            btnNewButton2.setBorderPainted(false);
-            btnNewButton2.setFocusPainted(false);
-            btnNewButton2.setOpaque(false);
-            btnNewButton2.setText(null);
-            btnNewButton2.addActionListener(getController());
+            startButton = new JButton(icon);
+            startButton.setBounds(288, 236, 106, 85);
+            startButton.setRolloverIcon(icon);
+            startButton.setPressedIcon(icon);
+            startButton.setContentAreaFilled(false);
+            startButton.setBorderPainted(false);
+            startButton.setFocusPainted(false);
+            startButton.setOpaque(false);
+            startButton.setText(null);
+            startButton.addActionListener(getController()); // Llamar al evento del controlador.
         }
-        return btnNewButton2;
-    }
-    
-    private Controller getController() {
-    	if(controlador == null) {
-    		
-    	}
+        return startButton;
     }
 
-    // Botón de la nave para el parpadeo
-    private JButton getbtnNewButton3() {
-        if (btnNewButton3 == null) {
+    private JButton getStartButtonCheck() {
+        if (startButtonCheck == null) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/img/navemasclara.png"));
-            btnNewButton3 = new JButton(new ImageIcon(StartScreen.class.getResource("/img/navemasclara.png")));
-            btnNewButton3.setBounds(288, 236, 106, 85);
-            btnNewButton3.setRolloverIcon(icon);
-            btnNewButton3.setPressedIcon(icon);
-            btnNewButton3.setContentAreaFilled(false);
-            btnNewButton3.setBorderPainted(false);
-            btnNewButton3.setFocusPainted(false);
-            btnNewButton3.setOpaque(false);
-            btnNewButton3.setText(null);
-            btnNewButton3.setVisible(false); // este arranca oculto para el parpadeo
+            startButtonCheck = new JButton(icon);
+            startButtonCheck.setBounds(288, 236, 106, 85);
+            startButtonCheck.setRolloverIcon(icon);
+            startButtonCheck.setPressedIcon(icon);
+            startButtonCheck.setContentAreaFilled(false);
+            startButtonCheck.setBorderPainted(false);
+            startButtonCheck.setFocusPainted(false);
+            startButtonCheck.setOpaque(false);
+            startButtonCheck.setText(null);
         }
-        return btnNewButton3;
+        return startButtonCheck;
     }
 
-	@Override
-	public void update(Observable o, Object arg) {
-		
-		
-	}
-	private class Controller implements ActionListener {
-		public void actionPerformed(ActionEvent e){
-			
-		}
-	}
-}
+
+    private StartController getController() {
+    	if (controller == null) {
+        controller = new StartController(this, model);
+    	}
+    	return controller;
+    }
+
+    
+    @Override
+    public void update(Observable o, Object arg) {
+    	//Aqui compruebo que el observable es el model(el board) y que llega un array de objetos.
+        if (o == model && arg instanceof Object[]) {
+            Object[] a = (Object[]) arg;
+    		//Llega con una longitud mayor a 0 y lo que se encuentra es un boolean true? Pues se abre la GameScreen.
+            if (a.length > 0 && Boolean.TRUE.equals(a[0])) {
+                GameScreen game = new GameScreen();
+                game.setVisible(true);
+                dispose();
+            }
+        }
+    }
+    private class StartController implements ActionListener {
+        private StartScreen screen;
+        private Board model;
+
+        public StartController(StartScreen screen, Board model) {
+            this.screen = screen;
+            this.model = model;
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            //Mostrar y ocultar el botón 3 (la nave clara para "confirmar" que hemos hecho click)
+            screen.startButtonCheck.setVisible(true);
+            screen.startButtonCheck.paintImmediately(0,0, screen.startButtonCheck.getWidth(), screen.startButtonCheck.getHeight());
+            screen.startButtonCheck.setVisible(false);
+            //Crear el tablero
+            model.setBoard();
+        }
+    }
+ }
