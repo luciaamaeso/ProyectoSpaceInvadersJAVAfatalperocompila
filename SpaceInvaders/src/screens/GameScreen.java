@@ -5,13 +5,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.util.Observable;
+import java.util.Observer;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-public class GameScreen extends JFrame {
+import model.Board;
+
+public class GameScreen extends JFrame implements Observer {
     private static final long serialVersionUID = 1L;
     
  // las columnas, las rows y el tama�o de cada pixel (cada JLabel)
@@ -48,6 +53,8 @@ public class GameScreen extends JFrame {
         pack();  
         setResizable(false);
         setLocationRelativeTo(null);
+        
+        Board.getMyBoard().addObserver(this);
     }
 
     // Aqui se ccrea la matriz de JLabels
@@ -87,4 +94,10 @@ public class GameScreen extends JFrame {
         }
         return null;
     }
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -3,6 +3,8 @@ package screens;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,7 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class StartScreen extends JFrame {
+import model.Board;
+
+public class StartScreen extends JFrame implements Observer {
     private static final long serialVersionUID = 1L;
 
     private JPanel contentPane;
@@ -66,6 +70,8 @@ public class StartScreen extends JFrame {
             dispose();
         });
         setLocationRelativeTo(null); // Centrar la ventana
+        
+        Board.getMyBoard().addObserver(this);
     }
 
     // Label del fondo
@@ -113,4 +119,16 @@ public class StartScreen extends JFrame {
         }
         return btnNewButton3;
     }
+
+	@Override
+	public void update(Observable o, Object arg) {
+		Object[] aux = (Object[]) arg;
+		boolean boardCreated = (boolean) aux[1];
+		if(boardCreated && this.isVisible()) {
+			this.setVisible(false);
+			GameScreen gameScreen = new GameScreen();
+			gameScreen.setVisible(true);
+		}
+		
+	}
 }

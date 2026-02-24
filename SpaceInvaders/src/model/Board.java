@@ -1,6 +1,8 @@
 package model;
 
-public class Board {
+import java.util.Observable;
+
+public class Board extends Observable {
 	private static Board myBoard;
 	private Object[][] squares;
 	private int length = 100;
@@ -23,5 +25,13 @@ public class Board {
 		return myBoard;
 	}
 	
+	public void setBoard() {
+
+		
+		
+		setChanged();
+		this.notifyObservers(new Object[] {true});
+	
+	}
 	
 }
