@@ -3,6 +3,8 @@ package screens;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -22,7 +24,8 @@ public class StartScreen extends JFrame implements Observer {
     private JLabel lblNewLabel;
     private JButton btnNewButton2; // Botón nave (normal)
     private JButton btnNewButton3; // Botón nave (parpadeillo)
-
+    private Controller controller;
+    
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
@@ -65,11 +68,14 @@ public class StartScreen extends JFrame implements Observer {
             btnNewButton3.paintImmediately(0, 0, btnNewButton3.getWidth(), btnNewButton3.getHeight());
   // Ocultamos el negro y abrimos la GameScreen
             btnNewButton3.setVisible(false);
-            GameScreen game = new GameScreen();
-            game.setVisible(true);
+            
             dispose();
         });
         setLocationRelativeTo(null); // Centrar la ventana
+        
+        
+        
+        
         
         Board.getMyBoard().addObserver(this);
     }
@@ -98,8 +104,15 @@ public class StartScreen extends JFrame implements Observer {
             btnNewButton2.setFocusPainted(false);
             btnNewButton2.setOpaque(false);
             btnNewButton2.setText(null);
+            btnNewButton2.addActionListener(getController());
         }
         return btnNewButton2;
+    }
+    
+    private Controller getController() {
+    	if(controlador == null) {
+    		
+    	}
     }
 
     // Botón de la nave para el parpadeo
@@ -122,13 +135,12 @@ public class StartScreen extends JFrame implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		Object[] aux = (Object[]) arg;
-		boolean boardCreated = (boolean) aux[1];
-		if(boardCreated && this.isVisible()) {
-			this.setVisible(false);
-			GameScreen gameScreen = new GameScreen();
-			gameScreen.setVisible(true);
-		}
 		
+		
+	}
+	private class Controller implements ActionListener {
+		public void actionPerformed(ActionEvent e){
+			
+		}
 	}
 }
