@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="filpix"/>
+		<item key="selection" value="tecla"/>
 		<list key="findhistory">
+			<item value="cmd"/>
+			<item value="ok"/>
 			<item value="altopix"/>
 			<item value="anchopix"/>
 			<item value="tamanopix"/>
@@ -18,6 +20,8 @@
 			<item value="ANCHO_CELDAS"/>
 		</list>
 		<list key="replacehistory">
+			<item value="tecla"/>
+			<item value="listo"/>
 			<item value="filpix"/>
 			<item value="colpix"/>
 			<item value="tamañopix"/>

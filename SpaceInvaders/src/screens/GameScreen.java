@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -15,6 +17,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import model.Board;
+import model.Player;
+import model.Alien;
+import model.Shot;
 
 public class GameScreen extends JFrame implements Observer {
     private static final long serialVersionUID = 1L;
@@ -49,8 +54,8 @@ public class GameScreen extends JFrame implements Observer {
         pack();  
         setResizable(false);
         setLocationRelativeTo(null);
-        
         Board.getMyBoard().addObserver(this);
+       
     }
 
     // Aqui se ccrea la matriz de JLabels
@@ -77,7 +82,6 @@ public class GameScreen extends JFrame implements Observer {
     @Override 
     public void update(Observable o, Object arg) {
     	//Aqui faltan cosas
-    	//TODO
     	if (o == Board.getMyBoard() && arg instanceof Object[]) {
     		Object[] arr = (Object[]) arg;
     		if (arr.length > 0 && Boolean.TRUE.equals(arr[0])) {
@@ -88,9 +92,26 @@ public class GameScreen extends JFrame implements Observer {
 
     //Aqui RECORREMOS Board, para pintar las naves enemigos etcetc
     private void mirrorFromBoard() {
-    	//TODO
-    //he pensado utilizar un colorOnePixel para ir iluminando cada pixel segun lo que se encuentre en casilla, estan abajo.(?????)
-    }
+            //Limpiamos la anterior pantalla para poder "repintar".
+    	for (int r = 0; r < rowspix; r++) {
+    		for (int c = 0; c < colspix; c++) {
+                    pixelMatrix[r][c].setBackground(Color.BLACK);}
+        }
+
+        Board board = Board.getMyBoard();
+        //coloreamos al jugador
+        Player p = board.getPlayer();
+        	if (p != null) {
+                colorOnePixel(p.getX(), p.getY(), Color.GREEN);}
+            // Coloreamos los aliens
+            for (Alien a : board.getAliens()) {
+                colorOnePixel(a.getX(), a.getY(), Color.RED);
+            }
+            //Coloreamos los shots
+            for (Shot s : board.getShots()) {
+                colorOnePixel(s.getX(), s.getY(), Color.WHITE);
+            }
+        }    
     
   //Colorea un pixel en la matriz.
     public void colorOnePixel(int x, int y, Color color) {
@@ -98,4 +119,29 @@ public class GameScreen extends JFrame implements Observer {
             pixelMatrix[y][x].setBackground(color);
         }
     }
+    private class GameController implements ActionListener {
+        private GameScreen screen;
+        private Board model;
+
+        public GameController(GameScreen screen, Board model) {
+            this.screen = screen;
+            this.model = model;
+        }
+
+        	public void actionPerformed(ActionEvent e) {
+        Object src = e.getSource();
+        String tecla = e.getActionCommand();
+        // Comandos por teclado/botón
+        if ("A".equals(tecla)) {
+            model.movePlayerLeft();
+        } else if ("D".equals(tecla)) {
+            model.movePlayerRight();
+        } else if ("SPACE".equals(tecla)) {
+            model.playerShoot();
+        }
+        // El Board debería notificar a los observers tras cambiar el estado
+  
+        }
+    }
+    
 }

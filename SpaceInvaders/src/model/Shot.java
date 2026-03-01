@@ -4,14 +4,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Observable;
 
-public abstract class Shot extends Observable {
+	public class Shot extends Observable {
 
 	private int posX;
 	private int posY;
 	
 	private Timer timer;
 	
-	protected Shot(int x, int y) {		// por ser clase abstracta
+	public Shot(int x, int y) {		
 		this.posX=x;	
 		this.posY=y+2;	// posY es la posY de la nave + 2 (empieza 2px más arriba) 
 		moveEvery50ms();
@@ -35,6 +35,11 @@ public abstract class Shot extends Observable {
             }
         }, 0, 50);	
 }
-	
+	public int getX() {
+		return this.posX;
+	}
+	public int getY() {
+		return this.posY;
+	}
 	
 }

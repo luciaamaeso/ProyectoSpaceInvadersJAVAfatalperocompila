@@ -15,4 +15,11 @@ public class Player extends SpaceCraft {
 	protected void moveRight() {
 		this.x = x+1;
 	}
+
+	public int getY() {
+		return y;
+	}
+	public int getX() {
+		return x;
+	}
 }

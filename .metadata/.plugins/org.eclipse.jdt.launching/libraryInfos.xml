@@ -53,6 +53,7 @@
         </endorsedDirs>
     </libraryInfo>
     <libraryInfo home="C:\Program Files\Java\jdk-17.0.1" version="17.0.1"/>
+    <libraryInfo home="C:\Program Files\Java\jdk-17" version="17.0.12"/>
     <libraryInfo home="C:\eclipse-java-2021-03-R - OK\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre" version="15.0.2"/>
     <libraryInfo home="C:\ECLIPSE_JAVA\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.7.v20250502-0916\jre" version="21.0.7"/>
     <libraryInfo home="C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot" version="17.0.18"/>

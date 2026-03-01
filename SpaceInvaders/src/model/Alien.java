@@ -9,7 +9,7 @@ public class Alien extends SpaceCraft{
 	private Timer timer;
 	
 	public Alien(int x, int y) {
-		super(x,y,"blue");	//no se si cambiar color, porq los enemigos son siempre de 1 color?
+		super(x, y, "blue");	//no se si cambiar color, porq los enemigos son siempre de 1 color?
 		moveEvery200ms();	//segun se crea, empieza a bajar automaticamente
 	}
 	
@@ -55,5 +55,13 @@ public class Alien extends SpaceCraft{
 	}
 	
 	//Si un disparo toca a un enemigo se destruye. 
+	
+	public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
 
