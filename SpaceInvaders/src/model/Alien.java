@@ -40,6 +40,16 @@ public class Alien extends SpaceCraft{
         timer.cancel();
     }
 	
+	
+	public boolean isThisPosition(int posX, int posY) {
+		if (x==posX && y==posY) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	//checkIfTouchPlayer()
 	
 	public boolean checkIfEndMatrix()

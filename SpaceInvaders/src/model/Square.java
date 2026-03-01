@@ -2,11 +2,11 @@ package model;
 import java.util.ArrayList;
 
 public class Square {
-	int posX;
-	int posY;
-	Alien alien=null;
-	Shot shot=null;
-	SpaceCraft spaceCraft=null;
+	private int posX;
+	private int posY;
+	private Alien alien=null;
+	private Shot shot=null;
+	private SpaceCraft spaceCraft=null;
 	
 	
 	public Square(int x, int y) {
@@ -45,6 +45,32 @@ public class Square {
 	
 	public void deleteSpaceCraft() {
 		spaceCraft=null;
+	}
+	
+	public int getX() { return this.posX;}
+	public int getY() { return this.posY;}
+	
+	public void move(int x, int y) { this.posX = x; this.posY = y; }
+	
+	public boolean alienSquare() {
+		if(this.alien != null) { 
+			return true;
+		} 
+		return false;
+	}
+	
+	public boolean shotSquare() {
+		if(this.shot != null) { 
+			return true;
+		} 
+		return false;
+	}
+	
+	public boolean spaceCraftSquare() {
+		if(this.spaceCraft != null) { 
+			return true;
+		} 
+		return false;
 	}
 	
 }
