@@ -6,18 +6,17 @@ import java.util.Random;
 
 public class Board extends Observable {
 	private static Board myBoard;
-	private Object[][] squares;
+	private Square[][] squares;
 	private int length = 100;
 	private int width = 60;
-	private Player player;
-	private ArrayList<Alien> aliens = new ArrayList();
-	private ArrayList<Shot> shots = new ArrayList();
+	private Square playerPosition = new Square(50,55);
+
 	
 	private Board() {
-		squares = new Object[length][width];
+		squares = new Square[length][width];
 		for(int i = 0; i < length; i++) {
 			for(int j = 0; j < width; j++) {
-				squares[i][j] = new Object();
+				squares[i][j] = new Square(i,j);
 			}
 		}
 	}
@@ -31,45 +30,70 @@ public class Board extends Observable {
 	}
 	
 	public void setBoard() {
-		aliens.clear();//Limpiamos los array tanto de los tiros como de los aliens para empezar.
-		shots.clear();
-		player = new Player(50, 55, "green"); //Definimos al jugador en la posicion(50,55)
-		Random rnd = new Random();
-
-		//aqui faltan mas cosas, asi solo se añaden los aliens.
+		// set aliens
+		
+		
+		// set player
+		Player player = new Player(this.playerPosition.getX(), this.playerPosition.getY(), "Blue");
+		squares[this.playerPosition.getX()][this.playerPosition.getY()].addSpaceCraft(player);
+		
+		int[][] matrixToGameScreen = new int[length][width];
+		for(int i = 0; i < length; i++) {
+			for(int j = 0; j < width; j++) {
+				if(squares[i][j].alienSquare()) {
+					matrixToGameScreen[i][j] = 1; // El número 1 para Alien
+				} else if(squares[i][j].spaceCraftSquare()) {
+					matrixToGameScreen[i][j] = 2;  // El 2 para Player/SpaceCraft
+				} else {
+					matrixToGameScreen[i][j] = 0; // El 0 para casilla de "aire"
+				}
+			}
+		}
+		
 		setChanged();
-		this.notifyObservers(new Object[] {Boolean.TRUE});} //Se setea el cambio y seguidamente se notifica a los observers que el board esta listo para updatearse
+		this.notifyObservers(matrixToGameScreen);
+	}
+	
+	public void actBoard() {
+		int[][] matrixToGameScreen = new int[length][width];
+		for(int i = 0; i < length; i++) {
+			for(int j = 0; j < width; j++) {
+				if(squares[i][j].alienSquare()) {
+					matrixToGameScreen[i][j] = 1; // El número 1 para Alien
+				} else if(squares[i][j].spaceCraftSquare()) {
+					matrixToGameScreen[i][j] = 2;  // El 2 para Player/SpaceCraft
+				} else if(squares[i][j].shotSquare()) {
+					matrixToGameScreen[i][j] = 3; // El 3 para casilla de disparo
+				} else {
+					matrixToGameScreen[i][j] = 0; // El 0 para casilla de aire
+				}
+			}
+		}
+		
+		setChanged();
+		this.notifyObservers(matrixToGameScreen);
+	}
 	
 
 
+	
+
 		public void movePlayerLeft() {
-			player.moveLeft();
-			setChanged();
-			this.notifyObservers(new Object[] {Boolean.TRUE});}
+			this.playerPosition.move(this.playerPosition.getX() - 1, this.playerPosition.getY());
+		}
 			
 		
 
 		public void movePlayerRight() {
-			player.moveRight();
-			setChanged();
-			this.notifyObservers(new Object[] {Boolean.TRUE});}
+			this.playerPosition.move(this.playerPosition.getX() + 1, this.playerPosition.getY());
+		}
 			
 		
-
+		// todo esto de aquí abajo da error porque he quitado el atributo player
 		public void playerShoot() {
 			player.shoot();
 			setChanged();
 			this.notifyObservers(new Object[] {Boolean.TRUE});}
-
-		public Player getPlayer() {
-			return player;
-		}
-
-		public ArrayList<Alien> getAliens() {
-			return aliens;
-		}
-
-		public ArrayList<Shot> getShots() {
 			return shots;
 		}	
 }
