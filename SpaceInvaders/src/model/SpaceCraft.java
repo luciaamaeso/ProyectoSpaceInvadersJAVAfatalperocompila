@@ -13,9 +13,9 @@ public abstract class SpaceCraft extends Observable {
 	
 	// Constructora
 	
-	protected SpaceCraft(int x, int y, String color) {
-		this.x = x;
-		this.y = y;
+	protected SpaceCraft(String color) {
+		this.x = 55;
+		this.y = 50;
 		this.color = color;
 		this.addObserver(null);  // Aquí hay que comprobar el nombre
 	}
