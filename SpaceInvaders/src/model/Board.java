@@ -10,8 +10,8 @@ public class Board extends Observable {
 	private int length = 100;
 	private int width = 60;
 	private Player player;
-	private final ArrayList<Alien> aliens = new ArrayList();
-	private final ArrayList<Shot> shots = new ArrayList();
+	private ArrayList<Alien> aliens = new ArrayList();
+	private ArrayList<Shot> shots = new ArrayList();
 	
 	private Board() {
 		squares = new Object[length][width];
