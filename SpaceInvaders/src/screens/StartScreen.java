@@ -117,6 +117,7 @@ public class StartScreen extends JFrame implements Observer {
     public void update(Observable o, Object arg) {
     	//Aqui compruebo que el observable es el model(el board) y que llega la matriz (se ha construido).
         	if (o == model && arg instanceof int[][]) {
+        		model.deleteObserver(this);//No funcionaba porque no habia quitado el observer del modelo de la StartScreen, lloro
                 GameScreen game = new GameScreen();
                 game.setVisible(true);
                 dispose();

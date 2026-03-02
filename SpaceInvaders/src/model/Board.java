@@ -87,13 +87,19 @@ public class Board extends Observable {
 		}
 	
 	public void movePlayerUp() {
+		if (this.playerPosition == null) {
+			// Esto lo pongo en los movimientos para cuando el jugador se sale del tablero/choca con los bordes
+			actBoard();
+			return;
+		}
 		int x = this.playerPosition.getX();
-		int y =  this.playerPosition.getY() + 1;
+		int y =  this.playerPosition.getY() - 1;
 		
-		if(y < width && !AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+		if(y >= 0) {
+			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {//Solo se mueve si está dentro del tablero y no hay un alien
 			this.playerPosition.move(x,y);
 			squares[x][y] = this.playerPosition;
-			squares[x][y-1].deletePlayer();
+			squares[x][y+1].deletePlayer();}
 			
 		} else {
 			this.playerPosition = null;
@@ -102,13 +108,19 @@ public class Board extends Observable {
 	}
 	
 	public void movePlayerLeft() {
+		if (this.playerPosition == null) {
+			// Esto lo pongo en los movimientos para cuando el jugador se sale del tablero/choca con los bordes
+			actBoard();
+			return;
+		}
 		int x = this.playerPosition.getX() - 1;
 		int y =  this.playerPosition.getY();
 		
-		if(x >= 0 && !AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+		if(x >= 0) {
+			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {//Solo se mueve si está dentro del tablero y no hay un alien
 			this.playerPosition.move(x,y);
 			squares[x][y] = this.playerPosition;
-			squares[x+1][y].deletePlayer();
+			squares[x+1][y].deletePlayer();}
 		} else {
 			this.playerPosition = null;
 		}
@@ -116,13 +128,19 @@ public class Board extends Observable {
 	}
 	
 	public void movePlayerRight() {
+		if (this.playerPosition == null) {
+			// Esto lo pongo en los movimientos para cuando el jugador se sale del tablero/choca con los bordes
+			actBoard();
+			return;
+		}
 		int x = this.playerPosition.getX() + 1;
 		int y =  this.playerPosition.getY();
 		
-		if(x < length && !AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+		if(x < length) {
+			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {//Solo se mueve si está dentro del tablero y no hay un alien
 			this.playerPosition.move(x,y);
 			squares[x][y] = this.playerPosition;
-			squares[x-1][y].deletePlayer();
+			squares[x-1][y].deletePlayer();}
 		} else {
 			this.playerPosition = null;
 		}
@@ -130,13 +148,19 @@ public class Board extends Observable {
 	}
 	
 	public void movePlayerDown() {
+		if (this.playerPosition == null) {
+			// Esto lo pongo en los movimientos para cuando el jugador se sale del tablero/choca con los bordes
+			actBoard();
+			return;
+		}
 		int x = this.playerPosition.getX();
-		int y =  this.playerPosition.getY() - 1;
+		int y =  this.playerPosition.getY() + 1;
 		
-		if(y >= 0 && !AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+		if(y < width) {
+			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
 			this.playerPosition.move(x,y);
 			squares[x][y] = this.playerPosition;
-			squares[x][y+1].deletePlayer();
+			squares[x][y-1].deletePlayer();}
 		} else {
 			this.playerPosition = null;
 		}

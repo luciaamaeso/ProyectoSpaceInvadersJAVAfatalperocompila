@@ -19,8 +19,7 @@ public class AlienManager {
 		for (int i=0; i<4;i++)
 		{
 			if(aliens[i] != null && aliens[i].isThisPosition(x, y)) {
-				return true;
-			}
+				return true;}
 		}
 		return false;
 	}
@@ -29,9 +28,21 @@ public class AlienManager {
 		for (int i=0; i<4; i++)
 		{
 			if (aliens[i] != null && aliens[i].checkIfEndMatrix()) {
-				return true;
-			}
+				return true;}
 		}
-		return false;
+		return false;}
+	
+	public void removeAlien(int ali) { //Quitar un alien si muere
+		if (ali >= 0 && ali < 4 && aliens[ali] != null) {
+			aliens[ali].stopTimer();
+			aliens[ali] = null;}
 	}
+	
+	public void killAlien(int x, int y) { //Matsr al alien en la pos x,y
+		for (int i = 0; i < 4; i++) {
+			if (aliens[i] != null && aliens[i].isThisPosition(x, y)) {
+				removeAlien(i);
+				return;}
+		}}
+	
 }

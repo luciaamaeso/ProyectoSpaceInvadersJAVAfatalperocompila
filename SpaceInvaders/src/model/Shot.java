@@ -20,6 +20,17 @@ import java.util.Observable;
 		
 	private void move() {
 		this.posY--;
+				//Si el sisparo esta fuera, lo para(el timer etc))
+				if (this.posY < 0) {
+					stopShot();
+					return;
+				}
+				//Colision???
+				if (AlienManager.getAlienManager().isAnAlienThere(this.posX, this.posY)) {
+					AlienManager.getAlienManager().killAlien(this.posX, this.posY);
+					stopShot();
+					return;
+				}
 		setChanged();
 		notifyObservers();
 		
@@ -40,6 +51,11 @@ import java.util.Observable;
 	}
 	public int getY() {
 		return this.posY;
+	}
+	private void stopShot() {//aqui se para el disparo(se para el  timer)
+		if (timer != null) {
+			timer.cancel();
+		}
 	}
 	
 }

@@ -56,6 +56,7 @@ public class GameScreen extends JFrame implements Observer {
         setResizable(false);
         setLocationRelativeTo(null);
         board.addObserver(this);
+        board.actBoard();//Añadimos el observer al modelo y creamos el tablero(llamada setboard)
         activarControles(getController());
     }
 
