@@ -15,7 +15,7 @@ public class Alien extends SpaceCraft{
 	
 	//Los alien se moveran hacia abajo una posici n cada 200 milisegundos
 	
-	private void moveDown() {
+	public void moveDown() {
 		y=y++;
 		setChanged();
         notifyObservers();

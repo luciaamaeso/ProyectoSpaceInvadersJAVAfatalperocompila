@@ -12,6 +12,7 @@ public class Square {
 	
 	public int getX() { return this.posX;}
 	public int getY() { return this.posY;}
+	public void move(int x, int y) { this.posX = x; this.posY = y;}
 	
 	public void addPlayer() {
 		player= new Player(this.posX, this.posY, "Color");
@@ -36,5 +37,7 @@ public class Square {
 	public void movePlayerLeft() {	
 		this.player.moveLeft();
 	}
+
+	
 	
 }

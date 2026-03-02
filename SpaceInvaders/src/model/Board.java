@@ -30,19 +30,26 @@ public class Board extends Observable {
 	}
 	
 	public void setBoard() {
-		// set aliens
+		//inicialización de la matriz
+		for(int i = 0; i < length; i++) {
+			for(int j = 0; j < width; j++) {
+				squares[i][j] = new Square(i,j);
+				if(AlienManager.getAlienManager().isAnAlienThere(i, j)) {
+					squares[i][j].addAlien();									// aquí es el set de los aliens
+				} else if(i == playerPosition.getX() && j == playerPosition.getY()) {
+					this.playerPosition.addPlayer();
+					squares[i][j] = playerPosition;								// aquí es el set del player
+				}
+			}
+		}
 		
-		
-		// set player
-		Player player = new Player(this.playerPosition.getX(), this.playerPosition.getY(), "Blue");
-		squares[this.playerPosition.getX()][this.playerPosition.getY()].addSpaceCraft(player);
 		
 		int[][] matrixToGameScreen = new int[length][width];
 		for(int i = 0; i < length; i++) {
 			for(int j = 0; j < width; j++) {
 				if(squares[i][j].alienSquare()) {
 					matrixToGameScreen[i][j] = 1; // El número 1 para Alien
-				} else if(squares[i][j].spaceCraftSquare()) {
+				} else if(squares[i][j].isPlayerInSquare()) {
 					matrixToGameScreen[i][j] = 2;  // El 2 para Player/SpaceCraft
 				} else {
 					matrixToGameScreen[i][j] = 0; // El 0 para casilla de "aire"
@@ -52,68 +59,88 @@ public class Board extends Observable {
 		
 		setChanged();
 		this.notifyObservers(matrixToGameScreen);
+	
 	}
+	
+	
 	
 	public void actBoard() {
 		if(this.playerPosition != null) {
 			int[][] matrixToGameScreen = new int[length][width];
 			for(int i = 0; i < length; i++) {
 				for(int j = 0; j < width; j++) {
-					if(squares[i][j].alienSquare()) {
+					if(AlienManager.getAlienManager().isAnAlienThere(i, j)) {
 						matrixToGameScreen[i][j] = 1; // El número 1 para Alien
-					} else if(squares[i][j].spaceCraftSquare()) {
-						matrixToGameScreen[i][j] = 2;  // El 2 para Player/SpaceCraft
-					} else if(squares[i][j].shotSquare()) {
-						matrixToGameScreen[i][j] = 3; // El 3 para casilla de disparo
 					} else {
 						matrixToGameScreen[i][j] = 0; // El 0 para casilla de aire
 					}
 				}
 			}
+			matrixToGameScreen[this.playerPosition.getX()][this.playerPosition.getY()] = 2; // el 2 es para el jugador
 		} else {
 			// aquí se habría perdido el juego
 			setChanged();
 			this.notifyObservers("Se ha perdido el juego");
 		}
-	}
+		}
+	
+	public void movePlayerUp() {
+		int x = this.playerPosition.getX();
+		int y =  this.playerPosition.getY() + 1;
 		
-		setChanged();
-		this.notifyObservers(matrixToGameScreen);
+		if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+			this.playerPosition.move(x,y);
+			squares[x][y] = this.playerPosition;
+			squares[x][y-1].deletePlayer();
+			
+		} else {
+			this.playerPosition = null;
+		}
 	}
 	
-
-
+	public void movePlayerLeft() {
+		int x = this.playerPosition.getX() - 1;
+		int y =  this.playerPosition.getY();
+		
+		if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+			this.playerPosition.move(x,y);
+			squares[x][y] = this.playerPosition;
+			squares[x+1][y].deletePlayer();
+		} else {
+			this.playerPosition = null;
+		}
+	}
 	
-
-		public void movePlayerLeft() {
-			this.playerPosition.move(this.playerPosition.getX() - 1, this.playerPosition.getY());
-		}
-			
+	public void movePlayerRight() {
+		int x = this.playerPosition.getX() + 1;
+		int y =  this.playerPosition.getY();
 		
-
-		public void movePlayerRight() {
-			this.playerPosition.move(this.playerPosition.getX() + 1, this.playerPosition.getY());
+		if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+			this.playerPosition.move(x,y);
+			squares[x][y] = this.playerPosition;
+			squares[x-1][y].deletePlayer();
+		} else {
+			this.playerPosition = null;
 		}
+	}
+	
+	public void movePlayerDown() {
+		int x = this.playerPosition.getX();
+		int y =  this.playerPosition.getY() - 1;
 		
-		public void movePlayerUp() {
-			this.playerPosition.move(this.playerPosition.getX(), this.playerPosition.getY() + 1);
+		if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+			this.playerPosition.move(x,y);
+			squares[x][y] = this.playerPosition;
+			squares[x][y+1].deletePlayer();
+		} else {
+			this.playerPosition = null;
 		}
+	}
 		
-		public void movePlayerDown() {
-			int x = this.playerPosition.getX();
-			int y =  this.playerPosition.getY() - 1;
-			if(getAlienMa)
-			
-			
-			
-			this.playerPosition.move(x, y);
-			squares[x][y].addPlayer();
-			squares[x][y+1].removePlayer()
-		}
-			
 		public void playerShoot() {
 			this.playerPosition.playerShoots();
 		}	
+
 }
         
 	
