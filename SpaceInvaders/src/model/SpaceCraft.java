@@ -14,8 +14,8 @@ public abstract class SpaceCraft extends Observable {
 	// Constructora
 	
 	protected SpaceCraft(int x, int y, String color) {
-		this.x = 55;
-		this.y = 50;
+		this.x = x;
+		this.y = y;
 		this.color = color;
 		this.addObserver(null);  // Aquí hay que comprobar el nombre
 	}
@@ -30,6 +30,14 @@ public abstract class SpaceCraft extends Observable {
 		this.x = x+1;
 	}
 	
+	public void moveUp() {
+		this.y = y + 1;
+	}
+	
+	public void moveDown() {
+		this.y = y + 1;
+	}
+
 	// Disparar
 	protected void shoot() {
 		new Shot(...);  // Aquí supongo que todo el proceso de crear un disparo, a la vez que el notificar a los observers, lo hace la constructora de shot

@@ -81,13 +81,8 @@ public class GameScreen extends JFrame implements Observer {
     
     @Override 
     public void update(Observable o, Object arg) {
-    	//Aqui faltan cosas
-    	if (o == Board.getMyBoard() && arg instanceof Object[]) {
-    		Object[] arr = (Object[]) arg;
-    		if (arr.length > 0 && Boolean.TRUE.equals(arr[0])) {
-            mirrorFromBoard(); // Aqui te lleva al metodo que va a hacer espejo para "pintar" la matriz con lo observado.
-    		}
-    	}
+    	int[][] matrix = (int[][]) arg;
+    	
     }
 
     //Aqui RECORREMOS Board, para pintar las naves enemigos etcetc
