@@ -88,7 +88,7 @@ public class GameScreen extends JFrame implements Observer {
     
     @Override 
     public void update(Observable o, Object arg) {
-    	if (o == Board.getMyBoard() && arg instanceof int[][]) {
+    	if (o == board && arg instanceof int[][]) {
     		int[][] mat = (int[][]) arg;
             mirrorFromBoard(mat); // Aqui te lleva al metodo que va a hacer espejo para "pintar" la matriz con lo observado.
     	}
@@ -112,9 +112,9 @@ public class GameScreen extends JFrame implements Observer {
         }    
     
   //Colorea un pixel en la matriz.
-    public void colorOnePixel(int x, int y, Color color) {
-        if (x >= 0 && x < colspix && y >= 0 && y < rowspix) {
-            pixelMatrix[y][x].setBackground(color);
+    public void colorOnePixel(int row, int col, Color color) {
+        if (row >= 0 && row < rowspix && col >= 0 && col < colspix) {
+            pixelMatrix[row][col].setBackground(color);
         }
     }
     public void activarControles(GameController controller) {//Este método es como un teclado, que lee lo que el usuario teclea para que el 

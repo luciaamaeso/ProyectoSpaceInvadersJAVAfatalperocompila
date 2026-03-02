@@ -24,7 +24,7 @@ public class StartScreen extends JFrame implements Observer {
     private JButton startButton;  //Boton de la nave normal
     private JButton startButtonCheck;  //Boton de la nave para la confirmacion del click
     private StartController controller;  //Controlador
-    private final Board model = Board.getMyBoard();
+    private Board model = Board.getMyBoard();
     
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -105,7 +105,7 @@ public class StartScreen extends JFrame implements Observer {
     }
 
 
-    private StartController getController() {
+    public StartController getController() {
     	if (controller == null) {
         controller = new StartController(this, model);
     	}
@@ -115,17 +115,14 @@ public class StartScreen extends JFrame implements Observer {
     
     @Override
     public void update(Observable o, Object arg) {
-    	//Aqui compruebo que el observable es el model(el board) y que llega un array de objetos.
-        if (o == model && arg instanceof Object[]) {
-            Object[] a = (Object[]) arg;
-    		//Llega con una longitud mayor a 0 y lo que se encuentra es un boolean true? Pues se abre la GameScreen.
-            if (a.length > 0 && Boolean.TRUE.equals(a[0])) {
+    	//Aqui compruebo que el observable es el model(el board) y que llega la matriz (se ha construido).
+        	if (o == model && arg instanceof int[][]) {
                 GameScreen game = new GameScreen();
                 game.setVisible(true);
                 dispose();
             }
         }
-    }
+    
     private class StartController implements ActionListener {
         private StartScreen screen;
         private Board model;
@@ -144,5 +141,7 @@ public class StartScreen extends JFrame implements Observer {
             //Crear el tablero
             model.setBoard();
         }
+    
     }
- }
+}
+   

@@ -77,6 +77,8 @@ public class Board extends Observable {
 				}
 			}
 			matrixToGameScreen[this.playerPosition.getX()][this.playerPosition.getY()] = 2; // el 2 es para el jugador
+			setChanged();
+	        this.notifyObservers(matrixToGameScreen);
 		} else {
 			// aquí se habría perdido el juego
 			setChanged();
@@ -96,6 +98,7 @@ public class Board extends Observable {
 		} else {
 			this.playerPosition = null;
 		}
+		actBoard();
 	}
 	
 	public void movePlayerLeft() {
@@ -109,6 +112,7 @@ public class Board extends Observable {
 		} else {
 			this.playerPosition = null;
 		}
+		actBoard();
 	}
 	
 	public void movePlayerRight() {
@@ -122,6 +126,7 @@ public class Board extends Observable {
 		} else {
 			this.playerPosition = null;
 		}
+		actBoard();
 	}
 	
 	public void movePlayerDown() {
@@ -135,6 +140,7 @@ public class Board extends Observable {
 		} else {
 			this.playerPosition = null;
 		}
+		actBoard();
 	}
 		
 		public void playerShoot() {
