@@ -55,20 +55,27 @@ public class Board extends Observable {
 	}
 	
 	public void actBoard() {
-		int[][] matrixToGameScreen = new int[length][width];
-		for(int i = 0; i < length; i++) {
-			for(int j = 0; j < width; j++) {
-				if(squares[i][j].alienSquare()) {
-					matrixToGameScreen[i][j] = 1; // El número 1 para Alien
-				} else if(squares[i][j].spaceCraftSquare()) {
-					matrixToGameScreen[i][j] = 2;  // El 2 para Player/SpaceCraft
-				} else if(squares[i][j].shotSquare()) {
-					matrixToGameScreen[i][j] = 3; // El 3 para casilla de disparo
-				} else {
-					matrixToGameScreen[i][j] = 0; // El 0 para casilla de aire
+		if(this.playerPosition != null) {
+			int[][] matrixToGameScreen = new int[length][width];
+			for(int i = 0; i < length; i++) {
+				for(int j = 0; j < width; j++) {
+					if(squares[i][j].alienSquare()) {
+						matrixToGameScreen[i][j] = 1; // El número 1 para Alien
+					} else if(squares[i][j].spaceCraftSquare()) {
+						matrixToGameScreen[i][j] = 2;  // El 2 para Player/SpaceCraft
+					} else if(squares[i][j].shotSquare()) {
+						matrixToGameScreen[i][j] = 3; // El 3 para casilla de disparo
+					} else {
+						matrixToGameScreen[i][j] = 0; // El 0 para casilla de aire
+					}
 				}
 			}
+		} else {
+			// aquí se habría perdido el juego
+			setChanged();
+			this.notifyObservers("Se ha perdido el juego");
 		}
+	}
 		
 		setChanged();
 		this.notifyObservers(matrixToGameScreen);
@@ -87,14 +94,25 @@ public class Board extends Observable {
 		public void movePlayerRight() {
 			this.playerPosition.move(this.playerPosition.getX() + 1, this.playerPosition.getY());
 		}
-			
 		
-		// todo esto de aquí abajo da error porque he quitado el atributo player
+		public void movePlayerUp() {
+			this.playerPosition.move(this.playerPosition.getX(), this.playerPosition.getY() + 1);
+		}
+		
+		public void movePlayerDown() {
+			int x = this.playerPosition.getX();
+			int y =  this.playerPosition.getY() - 1;
+			if(getAlienMa)
+			
+			
+			
+			this.playerPosition.move(x, y);
+			squares[x][y].addPlayer();
+			squares[x][y+1].removePlayer()
+		}
+			
 		public void playerShoot() {
-			player.shoot();
-			setChanged();
-			this.notifyObservers(new Object[] {Boolean.TRUE});}
-			return shots;
+			this.playerPosition.playerShoots();
 		}	
 }
         
