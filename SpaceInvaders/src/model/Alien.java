@@ -16,7 +16,7 @@ public class Alien extends SpaceCraft{
 	//Los alien se moveran hacia abajo una posici n cada 200 milisegundos
 	
 	public void moveDown() {
-		y=y++;
+		y++;
 		setChanged();
         notifyObservers();
         //casilla comprueba al guardar en ella q hay un alien si checkIfEndMatrix() o si hay un player

@@ -44,15 +44,15 @@ public class Board extends Observable {
 		}
 		
 		
-		int[][] matrixToGameScreen = new int[length][width];
+		int[][] matrixToGameScreen = new int[width][length];
 		for(int i = 0; i < length; i++) {
 			for(int j = 0; j < width; j++) {
 				if(squares[i][j].alienSquare()) {
-					matrixToGameScreen[i][j] = 1; // El número 1 para Alien
+					matrixToGameScreen[j][i] = 1; // El número 1 para Alien
 				} else if(squares[i][j].isPlayerInSquare()) {
-					matrixToGameScreen[i][j] = 2;  // El 2 para Player/SpaceCraft
+					matrixToGameScreen[j][i] = 2;  // El 2 para Player/SpaceCraft
 				} else {
-					matrixToGameScreen[i][j] = 0; // El 0 para casilla de "aire"
+					matrixToGameScreen[j][i] = 0; // El 0 para casilla de "aire"
 				}
 			}
 		}
@@ -66,17 +66,17 @@ public class Board extends Observable {
 	
 	public void actBoard() {
 		if(this.playerPosition != null) {
-			int[][] matrixToGameScreen = new int[length][width];
+			int[][] matrixToGameScreen = new int[width][length];
 			for(int i = 0; i < length; i++) {
 				for(int j = 0; j < width; j++) {
 					if(AlienManager.getAlienManager().isAnAlienThere(i, j)) {
-						matrixToGameScreen[i][j] = 1; // El número 1 para Alien
+						matrixToGameScreen[j][i] = 1; // El número 1 para Alien
 					} else {
-						matrixToGameScreen[i][j] = 0; // El 0 para casilla de aire
+						matrixToGameScreen[j][i] = 0; // El 0 para casilla de aire
 					}
 				}
 			}
-			matrixToGameScreen[this.playerPosition.getX()][this.playerPosition.getY()] = 2; // el 2 es para el jugador
+			matrixToGameScreen[this.playerPosition.getY()][this.playerPosition.getX()] = 2; // el 2 es para el jugador
 			setChanged();
 	        this.notifyObservers(matrixToGameScreen);
 		} else {
@@ -90,7 +90,7 @@ public class Board extends Observable {
 		int x = this.playerPosition.getX();
 		int y =  this.playerPosition.getY() + 1;
 		
-		if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+		if(y < width && !AlienManager.getAlienManager().isAnAlienThere(x, y)) {
 			this.playerPosition.move(x,y);
 			squares[x][y] = this.playerPosition;
 			squares[x][y-1].deletePlayer();
@@ -105,7 +105,7 @@ public class Board extends Observable {
 		int x = this.playerPosition.getX() - 1;
 		int y =  this.playerPosition.getY();
 		
-		if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+		if(x >= 0 && !AlienManager.getAlienManager().isAnAlienThere(x, y)) {
 			this.playerPosition.move(x,y);
 			squares[x][y] = this.playerPosition;
 			squares[x+1][y].deletePlayer();
@@ -119,7 +119,7 @@ public class Board extends Observable {
 		int x = this.playerPosition.getX() + 1;
 		int y =  this.playerPosition.getY();
 		
-		if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+		if(x < length && !AlienManager.getAlienManager().isAnAlienThere(x, y)) {
 			this.playerPosition.move(x,y);
 			squares[x][y] = this.playerPosition;
 			squares[x-1][y].deletePlayer();
@@ -133,7 +133,7 @@ public class Board extends Observable {
 		int x = this.playerPosition.getX();
 		int y =  this.playerPosition.getY() - 1;
 		
-		if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+		if(y >= 0 && !AlienManager.getAlienManager().isAnAlienThere(x, y)) {
 			this.playerPosition.move(x,y);
 			squares[x][y] = this.playerPosition;
 			squares[x][y+1].deletePlayer();

@@ -125,6 +125,10 @@ public class GameScreen extends JFrame implements Observer {
                     controller.actionPerformed(new ActionEvent(this, 0, "A"));}
                 else if (e.getKeyCode() == KeyEvent.VK_D) {
                     controller.actionPerformed(new ActionEvent(this, 0, "D"));}
+                else if (e.getKeyCode() == KeyEvent.VK_W) {
+                    controller.actionPerformed(new ActionEvent(this, 0, "W"));}
+                else if (e.getKeyCode() == KeyEvent.VK_S) {
+                    controller.actionPerformed(new ActionEvent(this, 0, "S"));}
                 else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                     controller.actionPerformed(new ActionEvent(this, 0, "SPACE"));}
             }
@@ -145,6 +149,10 @@ public class GameScreen extends JFrame implements Observer {
         		String teclado = e.getActionCommand();
                 if ("A".equals(teclado)) {
                     model.movePlayerLeft();}
+                else if ("W".equals(teclado)) {
+                    model.movePlayerUp();}
+                else if ("S".equals(teclado)) {
+                    model.movePlayerDown();}
                 else if ("D".equals(teclado)) {
                     model.movePlayerRight();}
                 else if ("SPACE".equals(teclado)) {

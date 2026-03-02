@@ -17,7 +17,6 @@ public abstract class SpaceCraft extends Observable {
 		this.x = x;
 		this.y = y;
 		this.color = color;
-		this.addObserver(null);  // Aquí hay que comprobar el nombre
 	}
 	
 	// Moverse
@@ -40,7 +39,7 @@ public abstract class SpaceCraft extends Observable {
 
 	// Disparar
 	protected void shoot() {
-		// aquí falta por hacer
+		new Shot(this.x, this.y);
 	}
 	
 }

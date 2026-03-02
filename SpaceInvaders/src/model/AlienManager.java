@@ -16,9 +16,9 @@ public class AlienManager {
 	}
 	
 	public boolean isAnAlienThere(int x, int y) {
-		for (int i=0; i<4;)
+		for (int i=0; i<4;i++)
 		{
-			if(aliens[i].isThisPosition(x, y)) {
+			if(aliens[i] != null && aliens[i].isThisPosition(x, y)) {
 				return true;
 			}
 		}
@@ -26,9 +26,9 @@ public class AlienManager {
 	}
 	
 	public boolean checkIfEndMatrix() {
-		for (int i=0; i<4;)
+		for (int i=0; i<4; i++)
 		{
-			if (aliens[i].checkIfEndMatrix()) {
+			if (aliens[i] != null && aliens[i].checkIfEndMatrix()) {
 				return true;
 			}
 		}

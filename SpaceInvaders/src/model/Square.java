@@ -25,11 +25,19 @@ public class Square {
 	}
 	
 	public boolean isPlayerInSquare() {
-		return this.player==null;
+		return this.player!=null;
 	}
 	
 	public void playerShoots() {
 		this.player.shoot();
+	}
+	public void move(int x, int y) {
+		this.posX = x;
+		this.posY = y;
+	}
+	
+	public boolean alienSquare() {
+		return this.alien != null;
 	}
 	
 	public void movePlayerRight() {	
@@ -51,6 +59,6 @@ public class Square {
 	}
 	
 	public boolean isAlienInSquare() {
-		return this.alien==null;
+		return this.alien!=null;
 	}
 }
