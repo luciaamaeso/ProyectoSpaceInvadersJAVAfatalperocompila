@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -17,9 +19,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import model.Board;
-import model.Player;
-import model.Alien;
-import model.Shot;
 
 public class GameScreen extends JFrame implements Observer {
     private static final long serialVersionUID = 1L;
@@ -31,6 +30,8 @@ public class GameScreen extends JFrame implements Observer {
     private JPanel contentPane;
     private JPanel matrixPanel;
     private JLabel[][] pixelMatrix;
+    private Board board = Board.getMyBoard();
+    GameController gController;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -54,8 +55,8 @@ public class GameScreen extends JFrame implements Observer {
         pack();  
         setResizable(false);
         setLocationRelativeTo(null);
-        Board.getMyBoard().addObserver(this);
-       
+        board.addObserver(this);
+        activarControles(getController());
     }
 
     // Aqui se ccrea la matriz de JLabels
@@ -78,34 +79,36 @@ public class GameScreen extends JFrame implements Observer {
         }
         return matrixPanel;
     }
+    private GameController getController() {
+    	if (gController == null) {
+    		gController = new GameController(this, board);
+    	}
+    	return gController;
+    }
     
     @Override 
     public void update(Observable o, Object arg) {
-    	int[][] matrix = (int[][]) arg;
-    	
+    	if (o == Board.getMyBoard() && arg instanceof int[][]) {
+    		int[][] mat = (int[][]) arg;
+            mirrorFromBoard(mat); // Aqui te lleva al metodo que va a hacer espejo para "pintar" la matriz con lo observado.
+    	}
     }
 
     //Aqui RECORREMOS Board, para pintar las naves enemigos etcetc
-    private void mirrorFromBoard() {
-            //Limpiamos la anterior pantalla para poder "repintar".
+    private void mirrorFromBoard(int[][] mat) {
     	for (int r = 0; r < rowspix; r++) {
     		for (int c = 0; c < colspix; c++) {
-                    pixelMatrix[r][c].setBackground(Color.BLACK);}
+    			if (mat[r][c] == 0) {
+                    this.colorOnePixel(r, c, Color.BLACK);}
+    			else if (mat[r][c] == 1){
+    				this.colorOnePixel(r, c, Color.PINK);}
+    			else if(mat[r][c] == 2) {
+    				this.colorOnePixel(r, c, Color.BLUE);}
+    			else {
+    				this.colorOnePixel(r, c, Color.YELLOW);
+    			}
+    		}	
         }
-
-        Board board = Board.getMyBoard();
-        //coloreamos al jugador
-        Player p = board.getPlayer();
-        	if (p != null) {
-                colorOnePixel(p.getX(), p.getY(), Color.GREEN);}
-            // Coloreamos los aliens
-            for (Alien a : board.getAliens()) {
-                colorOnePixel(a.getX(), a.getY(), Color.RED);
-            }
-            //Coloreamos los shots
-            for (Shot s : board.getShots()) {
-                colorOnePixel(s.getX(), s.getY(), Color.WHITE);
-            }
         }    
     
   //Colorea un pixel en la matriz.
@@ -113,6 +116,22 @@ public class GameScreen extends JFrame implements Observer {
         if (x >= 0 && x < colspix && y >= 0 && y < rowspix) {
             pixelMatrix[y][x].setBackground(color);
         }
+    }
+    public void activarControles(GameController controller) {//Este método es como un teclado, que lee lo que el usuario teclea para que el 
+    														//controlador avise al modelo del cambio.
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_A) {
+                    controller.actionPerformed(new ActionEvent(this, 0, "A"));}
+                else if (e.getKeyCode() == KeyEvent.VK_D) {
+                    controller.actionPerformed(new ActionEvent(this, 0, "D"));}
+                else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    controller.actionPerformed(new ActionEvent(this, 0, "SPACE"));}
+            }
+        });
+
+        setFocusable(true);
+        requestFocusInWindow();
     }
     private class GameController implements ActionListener {
         private GameScreen screen;
@@ -122,19 +141,15 @@ public class GameScreen extends JFrame implements Observer {
             this.screen = screen;
             this.model = model;
         }
-
-        	public void actionPerformed(ActionEvent e) {
-        Object src = e.getSource();
-        String tecla = e.getActionCommand();
-        // Comandos por teclado/botón
-        if ("A".equals(tecla)) {
-            model.movePlayerLeft();
-        } else if ("D".equals(tecla)) {
-            model.movePlayerRight();
-        } else if ("SPACE".equals(tecla)) {
-            model.playerShoot();
-        }
-        // El Board debería notificar a los observers tras cambiar el estado
+        	public void actionPerformed(ActionEvent e) {  
+        		String teclado = e.getActionCommand();
+                if ("A".equals(teclado)) {
+                    model.movePlayerLeft();}
+                else if ("D".equals(teclado)) {
+                    model.movePlayerRight();}
+                else if ("SPACE".equals(teclado)) {
+                    model.playerShoot();;
+                }
   
         }
     }
