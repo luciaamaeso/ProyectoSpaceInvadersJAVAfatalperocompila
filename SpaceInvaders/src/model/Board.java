@@ -45,7 +45,6 @@ public class Board extends Observable {
 			}
 		}
 		
-		updateBoardEvery200ms();
 		
 		
 		int[][] matrixToGameScreen = new int[width][length];
@@ -64,9 +63,10 @@ public class Board extends Observable {
 		setChanged();
 		this.notifyObservers(matrixToGameScreen);
 	
+		this.updateBoardEvery200ms();
 	}
 	
-	private void updateBoardEvery200ms()
+	public void updateBoardEvery200ms()
 	{
 		timer = new Timer();
 		
@@ -76,11 +76,10 @@ public class Board extends Observable {
                 actBoard();
             }
         }, 0, 200);
-
 	}
 	
 	public void actBoard() {
-		if(this.playerPosition != null && this.gameLost()) {
+		if(this.playerPosition != null && !this.gameLost()) {
 			int[][] matrixToGameScreen = new int[width][length];
 			for(int i = 0; i < length; i++) {
 				for(int j = 0; j < width; j++) {
@@ -94,7 +93,7 @@ public class Board extends Observable {
 			matrixToGameScreen[this.playerPosition.getY()][this.playerPosition.getX()] = 2; // el 2 es para el jugador
 			setChanged();
 	        this.notifyObservers(matrixToGameScreen);
-		} else if(!this.gameLost()) {
+		} else if(this.gameLost()) {
 			setChanged();
 			this.notifyObservers("perdido");
 		} else {
@@ -102,7 +101,9 @@ public class Board extends Observable {
 			setChanged();
 			this.notifyObservers("Se ha perdido el juego");
 		}
-		}
+
+
+	}
 	
 	public void movePlayerUp() {
 		boolean out=isOutOfRange(this.playerPosition.getX(), this.playerPosition.getY()-1);
