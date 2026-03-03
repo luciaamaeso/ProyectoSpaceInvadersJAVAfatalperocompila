@@ -102,9 +102,9 @@ public class GameScreen extends JFrame implements Observer {
     			if (mat[r][c] == 0) {
                     this.colorOnePixel(r, c, Color.BLACK);}
     			else if (mat[r][c] == 1){
-    				this.colorOnePixel(r, c, Color.PINK);}
+    				this.colorOnePixel(r, c, Color.MAGENTA);}
     			else if(mat[r][c] == 2) {
-    				this.colorOnePixel(r, c, Color.BLUE);}
+    				this.colorOnePixel(r, c, Color.CYAN);}
     			else {
     				this.colorOnePixel(r, c, Color.YELLOW);
     			}
