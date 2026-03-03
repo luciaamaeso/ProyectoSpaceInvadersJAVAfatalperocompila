@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,7 +10,7 @@ public class Alien extends SpaceCraft{
 	private Timer timer;
 	
 	public Alien(int x, int y) {
-		super(x, y, "blue");	//no se si cambiar color, porq los enemigos son siempre de 1 color?
+		super(x, y, "Color");	//no se si cambiar color, porq los enemigos son siempre de 1 color?
 		moveEvery200ms();	//segun se crea, empieza a bajar automaticamente
 	}
 	
@@ -17,6 +18,7 @@ public class Alien extends SpaceCraft{
 	
 	public void moveDown() {
 		y++;
+		System.out.println("Alien en y = " + y);	//QUITAR
 		setChanged();
         notifyObservers();
         //casilla comprueba al guardar en ella q hay un alien si checkIfEndMatrix() o si hay un player
