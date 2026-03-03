@@ -2,21 +2,19 @@ package model;
 
 import java.util.Observable;
 
-public abstract class SpaceCraft extends Observable {
+public abstract class SpaceCraft {
 	// Atributos
 	
 	protected int x;
 	protected int y;
-	protected String color;
 	// private Shot[] bullets;  esto lo he hecho pensando en el futuro
 
 	
 	// Constructora
 	
-	protected SpaceCraft(int x, int y, String color) {
+	protected SpaceCraft(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.color = color;
 	}
 	
 	// Moverse
@@ -37,9 +35,5 @@ public abstract class SpaceCraft extends Observable {
 		this.y = y + 1;
 	}
 
-	// Disparar
-	protected void shoot() {
-		new Shot(this.x, this.y);
-	}
 	
 }

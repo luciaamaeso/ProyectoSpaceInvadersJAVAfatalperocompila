@@ -56,11 +56,5 @@ public class AlienManager {
 				removeAlien(i);
 				return;}
 		}}
-	
-	public boolean gameLost() {
-		if(this.aliens[1].getY() <= 59) {
-			return true;
-		}
-		return false;
-	}
+
 }

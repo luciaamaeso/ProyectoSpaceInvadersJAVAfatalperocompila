@@ -10,7 +10,7 @@ public class Alien extends SpaceCraft{
 	private Timer timer;
 	
 	public Alien(int x, int y) {
-		super(x, y, "Color");	//no se si cambiar color, porq los enemigos son siempre de 1 color?
+		super(x, y);	//no se si cambiar color, porq los enemigos son siempre de 1 color?
 		moveEvery200ms();	//segun se crea, empieza a bajar automaticamente
 	}
 	
@@ -19,9 +19,7 @@ public class Alien extends SpaceCraft{
 	public void moveDown() {
 		y++;
 		System.out.println("Alien en y = " + y);	//QUITAR
-		setChanged();
-        notifyObservers();
-        //casilla comprueba al guardar en ella q hay un alien si checkIfEndMatrix() o si hay un player
+
 	}
 	
 	private void moveEvery200ms()

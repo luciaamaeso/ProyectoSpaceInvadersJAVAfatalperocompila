@@ -5,7 +5,7 @@ public class Player extends SpaceCraft {
 
 	
 	public Player(int x, int y, String color) {
-		super(x,y,color);
+		super(x,y);
 	}
 	
 	protected void moveLeft() {

@@ -27,10 +27,7 @@ public class Square {
 	public boolean isPlayerInSquare() {
 		return this.player!=null;
 	}
-	
-	public void playerShoots() {
-		this.player.shoot();
-	}
+
 	public void move(int x, int y) {
 		this.posX = x;
 		this.posY = y;

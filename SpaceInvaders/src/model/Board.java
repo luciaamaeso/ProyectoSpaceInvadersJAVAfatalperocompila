@@ -165,17 +165,18 @@ public class Board extends Observable {
 		return out;
 		
 	}
-		
-		public void playerShoot() {
-			this.playerPosition.playerShoots();
-		}	
 
 	private boolean playerEliminatedByAlien() { return AlienManager.getAlienManager().isAnAlienThere(this.playerPosition.getX(), this.playerPosition.getY());}
-	private boolean playerEliminatedBecauseAliensArrived() { return AlienManager.getAlienManager().gameLost();}
+	private boolean playerEliminatedBecauseAliensArrived() { return AlienManager.getAlienManager().checkIfEndMatrix();}
 	
 	private boolean gameLost() {
 		return this.playerEliminatedByAlien() || this.playerEliminatedBecauseAliensArrived();
 	}
+	
+	public void shoot() {
+		 // squares[this.playerPosition.getX()][this.playerPosition.getY() - 2].addShot();
+	}
+	
 }
         
 	

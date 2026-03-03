@@ -24,7 +24,6 @@ public class StartScreen extends JFrame implements Observer {
     private JButton startButton;  //Boton de la nave normal
     private JButton startButtonCheck;  //Boton de la nave para la confirmacion del click
     private StartController controller;  //Controlador
-    private Board model = Board.getMyBoard();
     
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -58,7 +57,7 @@ public class StartScreen extends JFrame implements Observer {
         startButtonCheck.setVisible(false);
         
         //Aniadimos el observer al board.
-        model.addObserver(this); 
+        Board.getMyBoard().addObserver(this); 
     }
 
     private JLabel getWallpaperStartScreen() {
@@ -107,7 +106,7 @@ public class StartScreen extends JFrame implements Observer {
 
     public StartController getController() {
     	if (controller == null) {
-        controller = new StartController(this, model);
+        controller = new StartController(this);
     	}
     	return controller;
     }
@@ -116,21 +115,19 @@ public class StartScreen extends JFrame implements Observer {
     @Override
     public void update(Observable o, Object arg) {
     	//Aqui compruebo que el observable es el model(el board) y que llega la matriz (se ha construido).
-        	if (o == model && arg instanceof int[][]) {
-        		model.deleteObserver(this);//No funcionaba porque no habia quitado el observer del modelo de la StartScreen, lloro
+        	if (o == Board.getMyBoard() && arg instanceof int[][]) {
+        		Board.getMyBoard().deleteObserver(this);//No funcionaba porque no habia quitado el observer del modelo de la StartScreen, lloro
                 GameScreen game = new GameScreen();
                 game.setVisible(true);
-                dispose();
+                this.setVisible(false);
             }
         }
     
     private class StartController implements ActionListener {
         private StartScreen screen;
-        private Board model;
 
-        public StartController(StartScreen screen, Board model) {
+        public StartController(StartScreen screen) {
             this.screen = screen;
-            this.model = model;
         }
         
         @Override
@@ -140,7 +137,7 @@ public class StartScreen extends JFrame implements Observer {
             screen.startButtonCheck.paintImmediately(0,0, screen.startButtonCheck.getWidth(), screen.startButtonCheck.getHeight());
             screen.startButtonCheck.setVisible(false);
             //Crear el tablero
-            model.setBoard();
+            Board.getMyBoard().setBoard();
         }
     
     }

@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Observable;
 
-	public class Shot extends Observable {
+	public class Shot extends SpaceCraft{
 
 	private int posX;
 	private int posY;
@@ -12,8 +12,7 @@ import java.util.Observable;
 	private Timer timer;
 	
 	public Shot(int x, int y) {		
-		this.posX=x;	
-		this.posY=y+2;	// posY es la posY de la nave + 2 (empieza 2px más arriba) 
+		super(x,y);	// posY es la posY de la nave + 2 (empieza 2px más arriba) 
 		moveEvery50ms();
 
 	}
@@ -31,9 +30,6 @@ import java.util.Observable;
 					stopShot();
 					return;
 				}
-		setChanged();
-		notifyObservers();
-		
 	}
 	
 	private void moveEvery50ms(){

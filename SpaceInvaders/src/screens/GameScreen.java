@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -30,7 +33,6 @@ public class GameScreen extends JFrame implements Observer {
     private JPanel contentPane;
     private JPanel matrixPanel;
     private JLabel[][] pixelMatrix;
-    private Board board = Board.getMyBoard();
     GameController gController;
 
     public static void main(String[] args) {
@@ -55,8 +57,7 @@ public class GameScreen extends JFrame implements Observer {
         pack();  
         setResizable(false);
         setLocationRelativeTo(null);
-        board.addObserver(this);
-        board.actBoard();//Añadimos el observer al modelo y creamos el tablero(llamada setboard)
+        Board.getMyBoard().addObserver(this);
         activarControles(getController());
     }
 
@@ -82,14 +83,14 @@ public class GameScreen extends JFrame implements Observer {
     }
     private GameController getController() {
     	if (gController == null) {
-    		gController = new GameController(this, board);
+    		gController = new GameController(this);
     	}
     	return gController;
     }
     
     @Override 
     public void update(Observable o, Object arg) {
-    	if (o == board && arg instanceof int[][]) {
+    	if (o == Board.getMyBoard() && arg instanceof int[][]) {
     		int[][] mat = (int[][]) arg;
             mirrorFromBoard(mat); // Aqui te lleva al metodo que va a hacer espejo para "pintar" la matriz con lo observado.
     	}
@@ -138,29 +139,91 @@ public class GameScreen extends JFrame implements Observer {
         setFocusable(true);
         requestFocusInWindow();
     }
-    private class GameController implements ActionListener {
-        private GameScreen screen;
-        private Board model;
 
-        public GameController(GameScreen screen, Board model) {
-            this.screen = screen;
-            this.model = model;
+    
+    private class GameController implements ActionListener, WindowListener {
+    	
+        private GameScreen screen;
+
+        public GameController(GameScreen screen) { 
+        	this.screen = screen; 
         }
+        
+        	
+        	
         	public void actionPerformed(ActionEvent e) {  
         		String teclado = e.getActionCommand();
                 if ("A".equals(teclado)) {
-                    model.movePlayerLeft();}
+                    Board.getMyBoard().movePlayerLeft();}
                 else if ("W".equals(teclado)) {
-                    model.movePlayerUp();}
+                	Board.getMyBoard().movePlayerUp();}
                 else if ("S".equals(teclado)) {
-                    model.movePlayerDown();}
+                	Board.getMyBoard().movePlayerDown();}
                 else if ("D".equals(teclado)) {
-                    model.movePlayerRight();}
+                	Board.getMyBoard().movePlayerRight();}
                 else if ("SPACE".equals(teclado)) {
-                    model.playerShoot();;
+                	Board.getMyBoard().shoot();;
                 }
-  
-        }
+        	}
+
+
+
+			@Override
+			public void windowOpened(WindowEvent e) {
+    			Board.getMyBoard().actBoard();
+			}
+
+
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+
+			@Override
+			public void windowClosed(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+
+        	
     }
     
 }
