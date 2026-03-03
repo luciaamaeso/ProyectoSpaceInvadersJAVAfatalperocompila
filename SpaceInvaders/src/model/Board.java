@@ -1,8 +1,7 @@
 package model;
 
-import java.util.ArrayList;
+
 import java.util.Observable;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -81,7 +80,7 @@ public class Board extends Observable {
 	}
 	
 	public void actBoard() {
-		if(this.playerPosition != null) {
+		if(this.playerPosition != null && this.gameLost()) {
 			int[][] matrixToGameScreen = new int[width][length];
 			for(int i = 0; i < length; i++) {
 				for(int j = 0; j < width; j++) {
@@ -95,6 +94,9 @@ public class Board extends Observable {
 			matrixToGameScreen[this.playerPosition.getY()][this.playerPosition.getX()] = 2; // el 2 es para el jugador
 			setChanged();
 	        this.notifyObservers(matrixToGameScreen);
+		} else if(!this.gameLost()) {
+			setChanged();
+			this.notifyObservers("perdido");
 		} else {
 			// aquí se habría perdido el juego
 			setChanged();
@@ -168,6 +170,12 @@ public class Board extends Observable {
 			this.playerPosition.playerShoots();
 		}	
 
+	private boolean playerEliminatedByAlien() { return AlienManager.getAlienManager().isAnAlienThere(this.playerPosition.getX(), this.playerPosition.getY());}
+	private boolean playerEliminatedBecauseAliensArrived() { return AlienManager.getAlienManager().gameLost();}
+	
+	private boolean gameLost() {
+		return this.playerEliminatedByAlien() || this.playerEliminatedBecauseAliensArrived();
+	}
 }
         
 	

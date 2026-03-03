@@ -57,4 +57,10 @@ public class AlienManager {
 				return;}
 		}}
 	
+	public boolean gameLost() {
+		if(this.aliens[1].getY() <= 59) {
+			return true;
+		}
+		return false;
+	}
 }
