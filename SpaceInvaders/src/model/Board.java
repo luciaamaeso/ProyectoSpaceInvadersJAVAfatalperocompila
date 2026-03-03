@@ -87,84 +87,65 @@ public class Board extends Observable {
 		}
 	
 	public void movePlayerUp() {
-		if (this.playerPosition == null) {
-			// Esto lo pongo en los movimientos para cuando el jugador se sale del tablero/choca con los bordes
-			actBoard();
-			return;
-		}
-		int x = this.playerPosition.getX();
-		int y =  this.playerPosition.getY() - 1;
-		
-		if(y >= 0) {
-			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {//Solo se mueve si está dentro del tablero y no hay un alien
-			this.playerPosition.move(x,y);
-			squares[x][y] = this.playerPosition;
-			squares[x][y+1].deletePlayer();}
-			
-		} else {
-			this.playerPosition = null;
+		boolean out=isOutOfRange(this.playerPosition.getX(), this.playerPosition.getY()-1);
+		if (!out) {
+			int x = this.playerPosition.getX();
+			int y =  this.playerPosition.getY()-1;
+			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+				this.playerPosition.move(x,y);
+				squares[x][y] = this.playerPosition;
+				squares[x][y+1].deletePlayer();}
 		}
 		actBoard();
 	}
 	
 	public void movePlayerLeft() {
-		if (this.playerPosition == null) {
-			// Esto lo pongo en los movimientos para cuando el jugador se sale del tablero/choca con los bordes
-			actBoard();
-			return;
-		}
-		int x = this.playerPosition.getX() - 1;
-		int y =  this.playerPosition.getY();
-		
-		if(x >= 0) {
-			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {//Solo se mueve si está dentro del tablero y no hay un alien
-			this.playerPosition.move(x,y);
-			squares[x][y] = this.playerPosition;
-			squares[x+1][y].deletePlayer();}
-		} else {
-			this.playerPosition = null;
+		boolean out=isOutOfRange(this.playerPosition.getX()-1, this.playerPosition.getY());
+		if (!out) {
+			int x = this.playerPosition.getX() - 1;
+			int y =  this.playerPosition.getY();
+			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+				this.playerPosition.move(x,y);
+				squares[x][y] = this.playerPosition;
+				squares[x+1][y].deletePlayer();}
 		}
 		actBoard();
 	}
 	
 	public void movePlayerRight() {
-		if (this.playerPosition == null) {
-			// Esto lo pongo en los movimientos para cuando el jugador se sale del tablero/choca con los bordes
-			actBoard();
-			return;
-		}
-		int x = this.playerPosition.getX() + 1;
-		int y =  this.playerPosition.getY();
-		
-		if(x < length) {
-			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {//Solo se mueve si está dentro del tablero y no hay un alien
-			this.playerPosition.move(x,y);
-			squares[x][y] = this.playerPosition;
-			squares[x-1][y].deletePlayer();}
-		} else {
-			this.playerPosition = null;
+		boolean out=isOutOfRange(this.playerPosition.getX()+1, this.playerPosition.getY());
+		if (!out) {
+			int x = this.playerPosition.getX() + 1;
+			int y =  this.playerPosition.getY();
+			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
+				this.playerPosition.move(x,y);
+				squares[x][y] = this.playerPosition;
+				squares[x-1][y].deletePlayer();}
 		}
 		actBoard();
 	}
 	
 	public void movePlayerDown() {
-		if (this.playerPosition == null) {
-			// Esto lo pongo en los movimientos para cuando el jugador se sale del tablero/choca con los bordes
-			actBoard();
-			return;
-		}
-		int x = this.playerPosition.getX();
-		int y =  this.playerPosition.getY() + 1;
-		
-		if(y < width) {
+		boolean out=isOutOfRange(this.playerPosition.getX(), this.playerPosition.getY() + 1);
+		if (!out) {
+			int x = this.playerPosition.getX();
+			int y =  this.playerPosition.getY() + 1;
 			if(!AlienManager.getAlienManager().isAnAlienThere(x, y)) {
-			this.playerPosition.move(x,y);
-			squares[x][y] = this.playerPosition;
-			squares[x][y-1].deletePlayer();}
-		} else {
-			this.playerPosition = null;
-		}
+				this.playerPosition.move(x,y);
+				squares[x][y] = this.playerPosition;
+				squares[x][y-1].deletePlayer();}
+		} 
 		actBoard();
+	}
+	
+	
+	private boolean isOutOfRange(int x, int y) {
+		boolean out=false;
+		if (y < 0 || y >= width || x < 0 || x >= length ) {
+			out=true;
+		}
+		return out;
+		
 	}
 		
 		public void playerShoot() {
