@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Board extends Observable {
 	private static Board myBoard;
@@ -10,6 +12,7 @@ public class Board extends Observable {
 	private int length = 100;
 	private int width = 60;
 	private Square playerPosition = new Square(50,55);
+	private Timer timer;
 
 	
 	private Board() {
@@ -43,6 +46,8 @@ public class Board extends Observable {
 			}
 		}
 		
+		updateBoardEvery200ms();
+		
 		
 		int[][] matrixToGameScreen = new int[width][length];
 		for(int i = 0; i < length; i++) {
@@ -62,7 +67,18 @@ public class Board extends Observable {
 	
 	}
 	
-	
+	private void updateBoardEvery200ms()
+	{
+		timer = new Timer();
+		
+		timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                actBoard();
+            }
+        }, 0, 200);
+
+	}
 	
 	public void actBoard() {
 		if(this.playerPosition != null) {
