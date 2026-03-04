@@ -2,7 +2,6 @@ package model;
 
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.Observable;
 
 	public class Shot extends SpaceCraft{
 
@@ -51,6 +50,15 @@ import java.util.Observable;
 	private void stopShot() {//aqui se para el disparo(se para el  timer)
 		if (timer != null) {
 			timer.cancel();
+		}
+	}
+
+	public boolean isThisPosition(int x, int y) {
+		if (x==posX && y==posY) {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 	
