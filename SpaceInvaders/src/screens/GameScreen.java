@@ -17,6 +17,7 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -59,6 +60,7 @@ public class GameScreen extends JFrame implements Observer {
         setLocationRelativeTo(null);
         Board.getMyBoard().addObserver(this);
         activarControles(getController());
+        addWindowListener(getController());
     }
 
     // Aqui se ccrea la matriz de JLabels
@@ -90,9 +92,18 @@ public class GameScreen extends JFrame implements Observer {
     
     @Override 
     public void update(Observable o, Object arg) {
-    	if (o == Board.getMyBoard() && arg instanceof int[][]) {
-    		int[][] mat = (int[][]) arg;
-            mirrorFromBoard(mat); // Aqui te lleva al metodo que va a hacer espejo para "pintar" la matriz con lo observado.
+    	if (o == Board.getMyBoard()) {
+    		if (arg instanceof int[][]) {
+    			int[][] mat = (int[][]) arg;
+    			mirrorFromBoard(mat);
+    		} else if (arg instanceof String) {
+    			String message = (String) arg;
+    			if (message.contains("perdido")) {
+    				Board.getMyBoard().stopGame();
+    				JOptionPane.showMessageDialog(this, "¡Has morido! Un alien ha llegado al final o te ha ripeado.", "A chuparla!", JOptionPane.INFORMATION_MESSAGE);
+    				System.exit(0);
+    			}
+    		}
     	}
     }
 

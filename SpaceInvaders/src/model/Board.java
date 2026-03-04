@@ -77,6 +77,11 @@ public class Board extends Observable {
             }
         }, 0, 200);
 	}
+	public void stopGame() {
+		if (timer != null) {
+			timer.cancel();
+		}
+	}
 	
 	public void actBoard() {
 		if(this.playerPosition != null && !this.gameLost()) {
