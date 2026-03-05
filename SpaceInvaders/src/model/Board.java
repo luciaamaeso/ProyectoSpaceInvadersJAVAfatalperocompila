@@ -90,7 +90,11 @@ public class Board extends Observable {
 				for(int j = 0; j < width; j++) {
 					if(AlienManager.getAlienManager().isAnAlienThere(i, j)) {
 						matrixToGameScreen[j][i] = 1; // El número 1 para Alien
-					} else {
+					}
+					else if (ShotManager.getShotManager().isAShotThere(i, j)) {
+					    matrixToGameScreen[j][i] = 3; // 3 = disparo
+					}
+					else {
 						matrixToGameScreen[j][i] = 0; // El 0 para casilla de aire
 					}
 				}
@@ -180,7 +184,9 @@ public class Board extends Observable {
 	}
 	
 	public void shoot() {
-		 // squares[this.playerPosition.getX()][this.playerPosition.getY() - 2].addShot();
+		    int x = this.playerPosition.getX();
+		    int y = this.playerPosition.getY() - 2; // sale justo dos pos encima del jugador
+		    ShotManager.getShotManager().addShot(x, y);
 	}
 	
 }

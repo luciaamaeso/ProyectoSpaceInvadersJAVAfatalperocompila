@@ -4,9 +4,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 	public class Shot extends SpaceCraft{
-
-	private int posX;
-	private int posY;
 	
 	private Timer timer;
 	
@@ -15,20 +12,18 @@ import java.util.TimerTask;
 		moveEvery50ms();
 
 	}
-		
+	// Cambio el metodo porque hacia referencia a los anteriores atributos, no habia herencia.
 	private void move() {
-		this.posY--;
-				//Si el sisparo esta fuera, lo para(el timer etc))
-				if (this.posY < 0) {
-					stopShot();
-					return;
-				}
-				//Colision???
-				if (AlienManager.getAlienManager().isAnAlienThere(this.posX, this.posY)) {
-					AlienManager.getAlienManager().killAlien(this.posX, this.posY);
-					stopShot();
-					return;
-				}
+	    this.y--;
+	    if (this.y < 0) {
+	        stopShot();
+	        return;
+	    }
+	    if (AlienManager.getAlienManager().isAnAlienThere(this.x, this.y)) {
+	        AlienManager.getAlienManager().killAlien(this.x, this.y);
+	        stopShot();
+	        return;
+	    }
 	}
 	
 	private void moveEvery50ms(){
@@ -41,25 +36,26 @@ import java.util.TimerTask;
             }
         }, 0, 50);	
 }
-	public int getX() {
-		return this.posX;
-	}
-	public int getY() {
-		return this.posY;
-	}
 	private void stopShot() {//aqui se para el disparo(se para el  timer)
 		if (timer != null) {
 			timer.cancel();
 		}
 	}
 
-	public boolean isThisPosition(int x, int y) {
-		if (x==posX && y==posY) {
-			return true;
-		}
-		else {
-			return false;
-		}
+	//Y los getters
+	public int getX() { 
+		return this.x; 
 	}
 	
+	
+	public int getY() { 
+		return this.y; 
+	}
+	
+	
+
+	//Este también lo cambio, ls pos x,y
+	public boolean isThisPosition(int x, int y) {
+	    return this.x == x && this.y == y;
+	}
 }

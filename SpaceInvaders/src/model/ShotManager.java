@@ -6,7 +6,9 @@ public class ShotManager {
 	private static ShotManager myShotManager;
 	private ArrayList<Shot> shots;
 	
-	private ShotManager() {}
+	private ShotManager() {
+		    shots = new ArrayList<>();  // estaba sin inicializar, daba NullPointerException
+	}
 	
 	public static ShotManager getShotManager() {
 		if (myShotManager==null) {
@@ -22,6 +24,11 @@ public class ShotManager {
 				return true;}
 		}
 		return false;
+	}
+	//para añadir un disparo a la lista!!
+	public void addShot(int x, int y) {
+	    Shot shot = new Shot(x, y);
+	    shots.add(shot);
 	}
 	
 }
