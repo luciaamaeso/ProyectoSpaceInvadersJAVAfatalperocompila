@@ -14,16 +14,24 @@ import java.util.TimerTask;
 	}
 	// Cambio el metodo porque hacia referencia a los anteriores atributos, no habia herencia.
 	private void move() {
-	    this.y--;
-	    if (this.y < 0) {
-	        stopShot();
-	        return;
-	    }
-	    if (AlienManager.getAlienManager().isAnAlienThere(this.x, this.y)) {
-	        AlienManager.getAlienManager().killAlien(this.x, this.y);
-	        stopShot();
-	        return;
-	    }
+		boolean out=isOutOfRange(this.y-1);
+		if (!out) {
+			this.y--;
+			//Colision???
+			if (AlienManager.getAlienManager().isAnAlienThere(this.x, this.y)) {
+				AlienManager.getAlienManager().killAlien(this.x, this.y);
+				ShotManager.getShotManager().removeShot(this.x, this.y);
+				return;
+			} 
+		} else {	//Si el disparo esta fuera, para el timer y lo borra
+			stopShot();
+			ShotManager.getShotManager().removeShot(this.x, this.y);
+			return;
+		}
+	}
+	
+	private boolean isOutOfRange(int y) {
+		return (y < 0);	
 	}
 	
 	private void moveEvery50ms(){
@@ -36,7 +44,7 @@ import java.util.TimerTask;
             }
         }, 0, 50);	
 }
-	private void stopShot() {//aqui se para el disparo(se para el  timer)
+	public void stopShot() {//aqui se para el disparo(se para el  timer)
 		if (timer != null) {
 			timer.cancel();
 		}

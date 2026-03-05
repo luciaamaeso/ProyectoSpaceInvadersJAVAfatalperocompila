@@ -31,4 +31,14 @@ public class ShotManager {
 	    shots.add(shot);
 	}
 	
+	public void removeShot(int x, int y) {
+		for (int i = 0; i < shots.size(); i++) {	// busco el disparo
+			if (shots.get(i).isThisPosition(x, y)) {
+				shots.get(i).stopShot();
+				shots.remove(i);
+			}
+		}
+	}	
+	
+	
 }

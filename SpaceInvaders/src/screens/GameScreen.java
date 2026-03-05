@@ -12,8 +12,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Set;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -132,19 +134,30 @@ public class GameScreen extends JFrame implements Observer {
     }
     public void activarControles(GameController controller) {//Este método es como un teclado, que lee lo que el usuario teclea para que el 
     														//controlador avise al modelo del cambio.
+        Set<Integer> teclasPresionadas = new HashSet<>();
         addKeyListener(new KeyAdapter() {
+            
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_A) {
-                    controller.actionPerformed(new ActionEvent(this, 0, "A"));}
-                else if (e.getKeyCode() == KeyEvent.VK_D) {
-                    controller.actionPerformed(new ActionEvent(this, 0, "D"));}
-                else if (e.getKeyCode() == KeyEvent.VK_W) {
-                    controller.actionPerformed(new ActionEvent(this, 0, "W"));}
-                else if (e.getKeyCode() == KeyEvent.VK_S) {
-                    controller.actionPerformed(new ActionEvent(this, 0, "S"));}
-                else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    controller.actionPerformed(new ActionEvent(this, 0, "SPACE"));}
+            	teclasPresionadas.add(e.getKeyCode());
+            	
+            	for (int k: teclasPresionadas) {
+            		if (k == KeyEvent.VK_A) {
+                        controller.actionPerformed(new ActionEvent(this, 0, "A"));}
+                    else if (k == KeyEvent.VK_D) {
+                        controller.actionPerformed(new ActionEvent(this, 0, "D"));}
+                    else if (k == KeyEvent.VK_W) {
+                        controller.actionPerformed(new ActionEvent(this, 0, "W"));}
+                    else if (k == KeyEvent.VK_S) {
+                        controller.actionPerformed(new ActionEvent(this, 0, "S"));}
+                    else if (k == KeyEvent.VK_SPACE) {
+                        controller.actionPerformed(new ActionEvent(this, 0, "SPACE"));
+                    }
+            	}
             }
+            public void keyReleased(KeyEvent e) {
+                teclasPresionadas.remove(e.getKeyCode());
+            }
+            
         });
 
         setFocusable(true);
@@ -160,9 +173,8 @@ public class GameScreen extends JFrame implements Observer {
         	this.screen = screen; 
         }
         
-        	
-        	
-        	public void actionPerformed(ActionEvent e) {  
+   
+        	public void actionPerformed(ActionEvent e) { 
         		String teclado = e.getActionCommand();
                 if ("A".equals(teclado)) {
                     Board.getMyBoard().movePlayerLeft();}

@@ -1,15 +1,11 @@
 package model;
 
-import java.util.Observable;
-
 public abstract class SpaceCraft {
 	// Atributos
-	
 	protected int x;
 	protected int y;
 	// private Shot[] bullets;  esto lo he hecho pensando en el futuro
 
-	
 	// Constructora
 	
 	protected SpaceCraft(int x, int y) {

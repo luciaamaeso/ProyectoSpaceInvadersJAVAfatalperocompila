@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,10 +16,11 @@ public class Alien extends SpaceCraft{
 	//Los alien se moveran hacia abajo una posici n cada 200 milisegundos
 	
 	public void moveDown() {
-		y++;
-		System.out.println("Alien en y = " + y);	//QUITAR
-
+		if (y+1 <= 60) {
+			y++;
+		}
 	}
+
 	
 	private void moveEvery200ms()
 	{
