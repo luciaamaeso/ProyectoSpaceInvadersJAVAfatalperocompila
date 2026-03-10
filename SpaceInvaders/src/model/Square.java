@@ -16,10 +16,9 @@ public class Square {
 	
 	public void addPlayer() {
 		if (this.player==null) {
-			player= new Player(this.posX, this.posY, "Color");
+			player= new Player(this.posX, this.posY);
 		}
 	}
-	
 	public void deletePlayer() {
 		this.player=null;
 	}
@@ -33,24 +32,11 @@ public class Square {
 		this.posY = y;
 	}
 	
-	public boolean alienSquare() {
-		return this.alien != null;
-	}
-	
-	public void movePlayerRight() {	
-		this.player.moveRight();
-	}
-	
-	public void movePlayerLeft() {	
-		this.player.moveLeft();
-	}
-
 	public void addAlien() {
 		if (alien==null) {
 			this.alien= new Alien(posX, posY);
 		}
 	}
-	
 	public void deleteAlien() {
 		this.alien=null;
 	}

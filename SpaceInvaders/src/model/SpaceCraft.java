@@ -23,13 +23,23 @@ public abstract class SpaceCraft {
 		this.x = x+1;
 	}
 	
-	public void moveUp() {
+	protected void moveUp() {
 		this.y = y + 1;
 	}
 	
-	public void moveDown() {
-		this.y = y + 1;
+	protected void moveDown() {
+		if (y+1 <= 60) {
+			y++;
+		}
 	}
+	
+	protected int getX() {
+        return x;
+    }
+
+    protected int getY() {
+        return y;
+    }
 
 	
 }

@@ -9,20 +9,12 @@ public class Alien extends SpaceCraft{
 	private Timer timer;
 	
 	public Alien(int x, int y) {
-		super(x, y);	//no se si cambiar color, porq los enemigos son siempre de 1 color?
-		moveEvery200ms();	//segun se crea, empieza a bajar automaticamente
+		super(x, y);		//no se si cambiar color, porq los enemigos son siempre de 1 color?
+		moveEvery350ms();	//segun se crea, empieza a bajar automaticamente
 	}
 	
-	//Los alien se moveran hacia abajo una posicion cada 200 milisegundos
-	
-	public void moveDown() {
-		if (y+1 <= 60) {
-			y++;
-		}
-	}
-
-	
-	private void moveEvery200ms()
+	//Los alien se moveran hacia abajo una posicion cada 350 milisegundos
+	private void moveEvery350ms()
 	{
 		timer = new Timer();
 		
@@ -40,7 +32,6 @@ public class Alien extends SpaceCraft{
         timer.cancel();
     }
 	
-	
 	public boolean isThisPosition(int posX, int posY) {
 		if (x==posX && y==posY) {
 			return true;
@@ -49,9 +40,7 @@ public class Alien extends SpaceCraft{
 			return false;
 		}
 	}
-	
-	//checkIfTouchPlayer()
-	
+		
 	public boolean checkIfEndMatrix()
 	{
 		if (y>=60)
@@ -62,16 +51,7 @@ public class Alien extends SpaceCraft{
 		{
 			return false;
 		}
-	}
+	}	
 	
-	//Si un disparo toca a un enemigo se destruye. 
-	
-	public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
 }
 

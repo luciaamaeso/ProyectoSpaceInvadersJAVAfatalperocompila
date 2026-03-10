@@ -21,12 +21,10 @@ import java.util.TimerTask;
 			if (AlienManager.getAlienManager().isAnAlienThere(this.x, this.y)) {
 				AlienManager.getAlienManager().killAlien(this.x, this.y);
 				ShotManager.getShotManager().removeShot(this.x, this.y);
-				return;
 			} 
 		} else {	//Si el disparo esta fuera, para el timer y lo borra
 			stopShot();
 			ShotManager.getShotManager().removeShot(this.x, this.y);
-			return;
 		}
 	}
 	
@@ -49,18 +47,6 @@ import java.util.TimerTask;
 			timer.cancel();
 		}
 	}
-
-	//Y los getters
-	public int getX() { 
-		return this.x; 
-	}
-	
-	
-	public int getY() { 
-		return this.y; 
-	}
-	
-	
 
 	//Este también lo cambio, ls pos x,y
 	public boolean isThisPosition(int x, int y) {
