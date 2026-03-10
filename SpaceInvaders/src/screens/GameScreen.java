@@ -94,20 +94,22 @@ public class GameScreen extends JFrame implements Observer {
     
     @Override 
     public void update(Observable o, Object arg) {
-    	if (o == Board.getMyBoard()) {
-    		if (arg instanceof int[][]) {
+    	if (arg instanceof int[][]) {
     			int[][] mat = (int[][]) arg;
     			mirrorFromBoard(mat);
-    		} else if (arg instanceof String) {
+    	} else if (arg instanceof String) {
     			String message = (String) arg;
     			if (message.contains("perdido")) {
-    				Board.getMyBoard().stopGame();
-    				JOptionPane.showMessageDialog(this, "¡Has morido! Un alien ha llegado al final o te ha ripeado.", "A chuparla!", JOptionPane.INFORMATION_MESSAGE);
-    				System.exit(0);
+    				JOptionPane.showMessageDialog(this, "¡Has muerto! Un alien ha llegado al final o te ha matado.", "Vuelve a intentarlo", JOptionPane.INFORMATION_MESSAGE);
+    				System.exit(0); }
+    			else if (message.contains("ganado")) {
+        				JOptionPane.showMessageDialog(this, "¡Has ganado! Has salvado la tierra.", "Premio o castigo?", JOptionPane.INFORMATION_MESSAGE);
+        				System.exit(0);
+    				
     			}
     		}
     	}
-    }
+  
 
     //Aqui RECORREMOS Board, para pintar las naves enemigos etcetc
     private void mirrorFromBoard(int[][] mat) {
@@ -167,10 +169,8 @@ public class GameScreen extends JFrame implements Observer {
     
     private class GameController implements ActionListener, WindowListener {
     	
-        private GameScreen screen;
 
         public GameController(GameScreen screen) { 
-        	this.screen = screen; 
         }
         
    

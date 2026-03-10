@@ -84,7 +84,7 @@ public class Board extends Observable {
 	}
 	
 	public void actBoard() {
-		if(this.playerPosition != null && !this.gameLost()) {
+		if(this.playerPosition != null && !this.gameLost() && !this.gameWon()) {
 			int[][] matrixToGameScreen = new int[width][length];
 			for(int i = 0; i < length; i++) {
 				for(int j = 0; j < width; j++) {
@@ -105,7 +105,13 @@ public class Board extends Observable {
 		} else if(this.gameLost()) {
 			setChanged();
 			this.notifyObservers("perdido");
-		} else {
+			this.stopGame();
+		}else if(this.gameWon()) {
+			setChanged();
+			this.notifyObservers("ganado");
+			this.stopGame();
+		}
+		else {
 			// aquí se habría perdido el juego
 			setChanged();
 			this.notifyObservers("Se ha perdido el juego");
@@ -113,7 +119,10 @@ public class Board extends Observable {
 
 
 	}
-	
+	private boolean gameWon() {
+		return AlienManager.getAlienManager().empty();
+	}
+
 	public void movePlayerUp() {
 		boolean out=isOutOfRange(this.playerPosition.getX(), this.playerPosition.getY()-1);
 		if (!out) {

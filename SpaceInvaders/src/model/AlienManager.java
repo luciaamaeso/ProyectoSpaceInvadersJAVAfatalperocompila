@@ -57,4 +57,16 @@ public class AlienManager {
 				return;}
 		}}
 
+	public boolean empty() {
+		boolean javilo = true;
+		int i = 0;
+		while(i<aliens.length) {
+			if(aliens[i] != null) {
+				javilo = false;
+			}
+			i++;
+		}
+		return javilo;
+	}
+
 }
