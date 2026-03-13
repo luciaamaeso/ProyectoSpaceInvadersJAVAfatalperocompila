@@ -4,17 +4,14 @@ public abstract class SpaceCraft {
 	// Atributos
 	protected int x;
 	protected int y;
-	// private Shot[] bullets;  esto lo he hecho pensando en el futuro
 
 	// Constructora
-	
 	protected SpaceCraft(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 	
 	// Moverse
-	
 	protected void moveLeft() {
 		this.x = x - 1;
 	}
@@ -33,6 +30,7 @@ public abstract class SpaceCraft {
 		}
 	}
 	
+	// Getters
 	protected int getX() {
         return x;
     }

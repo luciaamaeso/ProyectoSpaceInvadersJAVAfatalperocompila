@@ -3,9 +3,12 @@ package model;
 import java.util.ArrayList;
 
 public class ShotManager {
+
+	// Atributos
 	private static ShotManager myShotManager;
 	private ArrayList<Shot> shots;
 	
+	// Patrón Singleton
 	private ShotManager() {
 		    shots = new ArrayList<>();  // estaba sin inicializar, daba NullPointerException
 	}
@@ -17,6 +20,7 @@ public class ShotManager {
 		return myShotManager;
 	}
 	
+	// Posición del disparo
 	public boolean isAShotThere(int x, int y) {
 		for (int i=0; i<shots.size();i++)
 		{
@@ -25,7 +29,8 @@ public class ShotManager {
 		}
 		return false;
 	}
-	//para añadir un disparo a la lista!!
+	
+	// Añadir o eliminar disparo
 	public void addShot(int x, int y) {
 	    Shot shot = new Shot(x, y);
 	    shots.add(shot);

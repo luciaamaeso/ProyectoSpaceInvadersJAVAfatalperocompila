@@ -4,16 +4,17 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Alien extends SpaceCraft{
-	//alien de 1 pixel
 	
+	// Atributos
 	private Timer timer;
 	
+	// Constructora
 	public Alien(int x, int y) {
 		super(x, y);		//no se si cambiar color, porq los enemigos son siempre de 1 color?
 		moveEvery350ms();	//segun se crea, empieza a bajar automaticamente
 	}
 	
-	//Los alien se moveran hacia abajo una posicion cada 350 milisegundos
+	//Métodos para moverse
 	private void moveEvery350ms()
 	{
 		timer = new Timer();
@@ -27,20 +28,6 @@ public class Alien extends SpaceCraft{
 
 	}
 	
-	//Cuando se muere el alien
-	public void stopTimer() {
-        timer.cancel();
-    }
-	
-	public boolean isThisPosition(int posX, int posY) {
-		if (x==posX && y==posY) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-		
 	public boolean checkIfEndMatrix()
 	{
 		if (y>=60)
@@ -52,6 +39,23 @@ public class Alien extends SpaceCraft{
 			return false;
 		}
 	}	
+	
+
+	//Para matar a un alien
+	public void stopTimer() {
+        timer.cancel();
+    }
+	
+	// Comprobar posición
+	public boolean isThisPosition(int posX, int posY) {
+		if (x==posX && y==posY) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+		
 	
 }
 
