@@ -4,6 +4,7 @@ import java.util.Observable;
 import java.util.Timer;
 import java.util.TimerTask;
 
+@SuppressWarnings("deprecation")
 public class Board extends Observable {
 	private static Board myBoard;
 	private Square[][] squares;

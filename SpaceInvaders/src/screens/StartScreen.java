@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 
 import model.Board;
 
+@SuppressWarnings("deprecation")
 public class StartScreen extends JFrame implements Observer {
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
