@@ -1,26 +1,46 @@
-# ProyectoSpaceInvadersJAVAfatalperocompila
+#ProyectoSpaceInvadersJaVaFatalPeroCompila
 
-Historias de Usuario
-Sprint1 (semana 10)
-  ● HU1: Implementar la pantalla de inicio (solo da paso al juego).
-  ● HU2: Inicializar la matriz que representa el espacio.
-  ● HU3: Implementar la nave de un píxel y el disparo de un píxel.
-  ● HU4: Implementar el enemigo de un píxel.
-  ● HU5: Aplicar a la perfección el patrón MVC.
-Sprint2 (semana 13)
-  ● HU6: Modificar la pantalla de inicio para:
-    ○ Las naves: Green, Blue Red.
-  ● HU7: Implementar naves y enemigos multipíxel.
-  ● HU8: Implementar tipos de disparo.
-  ● HU9: Aplicar a la perfección los patrones de diseño.
-  Sprint3 (semana 15)
-  ● HU10: Añadir Java8
-  ● HU11
-1
-: Implementar una expansión para el juego.
-    ○ Puntuaciones
-    ○ Enemigos “inteligentes” con disparos etc…
-    ○ Pantallas o niveles de dificultad
-    ○ Un final Boss
-    ○ Incluir LLMs en el juego
-    ○ …
+#SpaceInvaders
+
+Juego de Space Invaders hecho en Java para la asignatura. Mata aliens, no mueras.
+
+---
+
+##Antes de ejecutarlo
+
+Necesitas tener Java instalado (versión 8 o superior). Si no sabes si lo tienes, abre una terminal y escribe:
+
+```
+java -version
+```
+
+Si te da error, descárgalo desde java.com e instálalo normal.
+
+---
+
+##Ejecutar el juego
+
+Lo más sencillo es hacer **doble clic** sobre el `.jar`. Si nada ocurre, abre una terminal donde tengas el archivo y ejecuta:
+
+```
+java -jar SpaceInvaders.jar
+```
+
+---
+
+## Controles
+
+- **W A S D** para moverte
+- **Espacio** para disparar
+
+---
+
+## Objetivo
+
+Elimina todos los aliens antes de que lleguen abajo. Si alguno te toca o llega al fondo, pierdes. Si los matas a todos, ganas.
+
+Para empezar, haz clic sobre la nave en la pantalla de inicio.
+
+---
+
+Hecho por JaVaFatalPeroCompila
