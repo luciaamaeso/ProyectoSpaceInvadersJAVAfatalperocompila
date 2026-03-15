@@ -17,8 +17,9 @@ import java.util.TimerTask;
 		boolean out=isOutOfRange(this.y-1);
 		if (!out) {
 			this.y--;
-			//Colision???
+			//Colision de disparo y alien
 			if (AlienManager.getAlienManager().isAnAlienThere(this.x, this.y)) {
+				
 				AlienManager.getAlienManager().killAlien(this.x, this.y);
 				ShotManager.getShotManager().removeShot(this.x, this.y);
 			} 
@@ -42,7 +43,7 @@ import java.util.TimerTask;
             }
         }, 0, 50);	
 }
-	public void stopShot() {//aqui se para el disparo(se para el  timer)
+	public void stopShot() {//aqui se para el disparo(se para el timer)
 		if (timer != null) {
 			timer.cancel();
 		}

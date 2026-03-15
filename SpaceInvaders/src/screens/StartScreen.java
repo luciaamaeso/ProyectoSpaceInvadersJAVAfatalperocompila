@@ -60,7 +60,7 @@ public class StartScreen extends JFrame implements Observer {
         Board.getMyBoard().addObserver(this); 
     }
 
-    private JLabel getWallpaperStartScreen() {
+    private JLabel getWallpaperStartScreen() { //El fondo de la pantalla de start
         if (wallpaperStartScreen == null) {
             wallpaperStartScreen = new JLabel("fondillo");
             wallpaperStartScreen.setBounds(0, 0, 694, 442);
@@ -70,7 +70,7 @@ public class StartScreen extends JFrame implements Observer {
         return wallpaperStartScreen;
     }
 
-    private JButton getStartButton() {
+    private JButton getStartButton() { //El botón de la nave
         if (startButton == null) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/img/nave.png"));
             startButton = new JButton(icon);
@@ -87,7 +87,7 @@ public class StartScreen extends JFrame implements Observer {
         return startButton;
     }
 
-    private JButton getStartButtonCheck() {
+    private JButton getStartButtonCheck() { //La nave que se aclara como confirmación de que empiezas el juego
         if (startButtonCheck == null) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/img/navemasclara.png"));
             startButtonCheck = new JButton(icon);
@@ -114,10 +114,10 @@ public class StartScreen extends JFrame implements Observer {
     
     @Override
     public void update(Observable o, Object arg) {
-    	//Aqui compruebo que el observable es el model(el board) y que llega la matriz (se ha construido).
-        	if (o == Board.getMyBoard() && arg instanceof int[][]) {
-        		Board.getMyBoard().deleteObserver(this);//No funcionaba porque no habia quitado el observer del modelo de la StartScreen, lloro
-                GameScreen game = new GameScreen();
+    	//Aqui compruebo llega la matriz (se ha construido).
+        	if (arg instanceof int[][]) {
+        		Board.getMyBoard().deleteObserver(this);
+                GameScreen game = new GameScreen(); //Creas la GameScreen y la pones visible quitando la StartScreen
                 game.setVisible(true);
                 this.setVisible(false);
             }

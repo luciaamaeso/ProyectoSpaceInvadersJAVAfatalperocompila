@@ -29,7 +29,7 @@ import model.Board;
 public class GameScreen extends JFrame implements Observer {
     private static final long serialVersionUID = 1L;
     
- // las columnas, las rows y el tamanio de cada pixel (cada JLabel)
+ //Las columnas, las rows y el tamanio de cada pixel (cada JLabel)
     private int colspix = 100; 
     private int rowspix  = 60;  
     private int pixelsize = 8;  
@@ -49,7 +49,7 @@ public class GameScreen extends JFrame implements Observer {
         });
     }
 
-    // Constructora de la pantallica
+    // Constructora de la pantalla de juego
     public GameScreen() {
         setTitle("SpaceInvaders de los JaVaMalPeroCompila!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,18 +94,17 @@ public class GameScreen extends JFrame implements Observer {
     
     @Override 
     public void update(Observable o, Object arg) {
-    	if (arg instanceof int[][]) {
+    	if (arg instanceof int[][]) { //Si te llega la matriz vas actualizando la vista con el tablero actualizado
     			int[][] mat = (int[][]) arg;
     			mirrorFromBoard(mat);
-    	} else if (arg instanceof String) {
+    	} else if (arg instanceof String) {//Si te llega una string significa que has perdido o ganado el juego
     			String message = (String) arg;
-    			if (message.contains("perdido")) {
+    			if (message.contains("perdido")) {//Aqui se perdería el juego
     				JOptionPane.showMessageDialog(this, "¡Has muerto! Un alien ha llegado al final o te ha matado.", "Vuelve a intentarlo", JOptionPane.INFORMATION_MESSAGE);
     				System.exit(0); }
-    			else if (message.contains("ganado")) {
-        				JOptionPane.showMessageDialog(this, "¡Has ganado! Has salvado la tierra.", "Premio o castigo?", JOptionPane.INFORMATION_MESSAGE);
-        				System.exit(0);
-    				
+    			else if (message.contains("ganado")) {//Aqui se ganaria el juego
+        			JOptionPane.showMessageDialog(this, "¡Has ganado! Has salvado la tierra.", "¿Premio o castigo?", JOptionPane.INFORMATION_MESSAGE);
+        			System.exit(0);
     			}
     		}
     	}
@@ -116,13 +115,13 @@ public class GameScreen extends JFrame implements Observer {
     	for (int r = 0; r < rowspix; r++) {
     		for (int c = 0; c < colspix; c++) {
     			if (mat[r][c] == 0) {
-                    this.colorOnePixel(r, c, Color.BLACK);}
+                    this.colorOnePixel(r, c, Color.BLACK);} //El fondo
     			else if (mat[r][c] == 1){
-    				this.colorOnePixel(r, c, Color.MAGENTA);}
+    				this.colorOnePixel(r, c, Color.MAGENTA);} //Los aliens
     			else if(mat[r][c] == 2) {
-    				this.colorOnePixel(r, c, Color.CYAN);}
+    				this.colorOnePixel(r, c, Color.CYAN);} //La nave
     			else {
-    				this.colorOnePixel(r, c, Color.YELLOW);
+    				this.colorOnePixel(r, c, Color.YELLOW); //Los disparos
     			}
     		}	
         }
@@ -135,13 +134,11 @@ public class GameScreen extends JFrame implements Observer {
         }
     }
     public void activarControles(GameController controller) {//Este método es como un teclado, que lee lo que el usuario teclea para que el 
-    														//controlador avise al modelo del cambio.
+    	                    									//controlador avise al modelo del cambio.
         Set<Integer> teclasPresionadas = new HashSet<>();
-        addKeyListener(new KeyAdapter() {
-            
+        addKeyListener(new KeyAdapter() {     
             public void keyPressed(KeyEvent e) {
             	teclasPresionadas.add(e.getKeyCode());
-            	
             	for (int k: teclasPresionadas) {
             		if (k == KeyEvent.VK_A) {
                         controller.actionPerformed(new ActionEvent(this, 0, "A"));}
@@ -173,7 +170,7 @@ public class GameScreen extends JFrame implements Observer {
         public GameController(GameScreen screen) { 
         }
         
-   
+        //Según lo que le llegue del activarControles mueve al jugador o dispara
         	public void actionPerformed(ActionEvent e) { 
         		String teclado = e.getActionCommand();
                 if ("A".equals(teclado)) {
@@ -190,7 +187,8 @@ public class GameScreen extends JFrame implements Observer {
         	}
 
 
-
+        	//Se generan metodos que no utilizamos con el WindowListener, no se pueden quitar porque dan error
+        	//El windowOpened hace que se empiece a actualizar el tablero según se abra la GameScreen
 			@Override
 			public void windowOpened(WindowEvent e) {
     			Board.getMyBoard().actBoard();

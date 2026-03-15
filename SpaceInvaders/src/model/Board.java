@@ -83,16 +83,13 @@ public class Board extends Observable {
 			this.notifyObservers(matrixToGameScreen);
 		} else if (this.gameLost()) {
 			setChanged();
-			this.notifyObservers("perdido");
+			this.notifyObservers("perdido"); //Aqui se pasa la string que hace que pierdas el juego
 			this.stopGame();
-		} else if (this.gameWon()) {
+		} else { 
 			setChanged();
-			this.notifyObservers("ganado");
+			this.notifyObservers("ganado"); //Aqui se pasa la string que hace que ganes el juego
 			this.stopGame();
-		} else {
-			// aquí se habría perdido el juego
-			setChanged();
-			this.notifyObservers("Se ha perdido el juego");
+		
 		}
 
 	}
